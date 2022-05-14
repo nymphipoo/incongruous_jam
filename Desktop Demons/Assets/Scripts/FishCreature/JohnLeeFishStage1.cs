@@ -6,7 +6,6 @@ public class JohnLeeFishStage1 : parentDemon
 {
 
     [SerializeField] bool startRight = true;
-    int gravity = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,13 +48,8 @@ public class JohnLeeFishStage1 : parentDemon
         }
         Debug.DrawRay(transform.position, fwd, Color.yellow, r2d.velocity.magnitude);*/
 
-        base.updateVelocity();
+        updateVelocity();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("Swap");
-        //internalSpeed.x = -internalSpeed.x;
-    }
 }
 
