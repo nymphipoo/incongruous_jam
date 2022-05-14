@@ -22,9 +22,11 @@ public class parentDemon : MonoBehaviour
         public GameObject prefabToEvolveTo;
     }
 
+    protected SpriteRenderer spriteRef;
     // Start is called before the first frame update
     protected void Start()
     {
+        spriteRef = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
