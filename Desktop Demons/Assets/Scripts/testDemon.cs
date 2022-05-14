@@ -29,9 +29,17 @@ public class testDemon : parentDemon
         Vector2 fwd = transform.TransformDirection(internalSpeed);
         Vector2 length = rb2d.velocity;
 
-        print("test "+Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right) * 1));
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * 1, Color.white);
+        Vector2 offset = new Vector2(transform.position.x, transform.position.y) + (rb2d.velocity.normalized * (transform.localScale.magnitude/2 ));
+        RaycastHit2D hit= Physics2D.Raycast(offset, transform.TransformDirection(rb2d.velocity).normalized, 1);
+        if (hit)
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            print("hitObject:" + hitObject.name);
+             internalSpeed.x = -internalSpeed.x;
 
+        }
+        Debug.DrawRay(offset, new Vector3(1,0,0) , Color.white);
+        
 
         /*
         RaycastHit hit;
@@ -48,6 +56,6 @@ public class testDemon : parentDemon
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Swap");
-        internalSpeed.x = -internalSpeed.x;
+        //internalSpeed.x = -internalSpeed.x;
     }
 }

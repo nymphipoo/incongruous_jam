@@ -13,7 +13,8 @@ public class parentDemon : MonoBehaviour
 
     [SerializeField] protected bool parentExternalSpeedDecay = true;
 
-
+    [SerializeField]
+    Dictionary<string, parentDemon> foodNameToEvo;
 
     // Start is called before the first frame update
     protected void Start()
@@ -21,41 +22,41 @@ public class parentDemon : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    protected void updateVelocity()
+    virtual protected void updateVelocity()
     {
         Movement();
         rb2d.velocity = internalSpeed+externalSpeed;
     }
 
-    private void Movement()
+    virtual protected void Movement()
     {
         if (parentExternalSpeedDecay)
         {
             ExternalSpeedDecay();
         }
-        Vector2 vel = internalSpeed + externalSpeed;
-        //move player in the direction of the movement coords
-        rb2d.MovePosition(rb2d.position + vel * Time.fixedDeltaTime);
     }
 
+    virtual public void setExternalRateDecay(float newRate)
+    {
+       externalSpeedDecayRate = newRate;
+    }
 
-    public void AddExternalSpeed(Vector2 newSpeed)
+    virtual public float getExternalRateDecay()
+    {
+        return externalSpeedDecayRate;
+    }
+
+    virtual public void AddExternalSpeed(Vector2 newSpeed)
     {
         externalSpeed += newSpeed;
     }
 
-    public void SetExternalSpeed(Vector2 newSpeed)
+    virtual public void SetExternalSpeed(Vector2 newSpeed)
     {
         externalSpeed = newSpeed;
     }
 
-    protected void ExternalSpeedDecay()
+    virtual protected void ExternalSpeedDecay()
     {
         if (externalSpeed.x>0)
         {
@@ -74,6 +75,37 @@ public class parentDemon : MonoBehaviour
         {
             externalSpeed.y = Mathf.Min(externalSpeed.y + externalSpeedDecayRate, 0);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        EncounteredFood(collision);
+    }
+
+    virtual protected void EncounteredFood(Collision2D collision)
+    {
+        eatable food = collision.gameObject.GetComponent<eatable>();
+        if (food)
+        {
+            //this will be changed when we determine how to this
+            if (foodNameToEvo.ContainsKey(food.foodName))
+            {
+                Instantiate(foodNameToEvo[food.name], transform.position, transform.rotation);
+                //we ideally would have a custom destroy function for all the items too
+                food.Eaten(transform);
+                Evolving();
+            }
+        }
+    }
+
+    virtual protected void Evolving()
+    {
+        Destroy(gameObject);
+    }
+
+    virtual protected void Killed()
+    {
+        Destroy(gameObject);
     }
 }
 
