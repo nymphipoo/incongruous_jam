@@ -24,7 +24,7 @@ public class parentDemon : MonoBehaviour
 
     protected SpriteRenderer spriteRef;
     // Start is called before the first frame update
-    protected void Start()
+    virtual protected void Start()
     {
         spriteRef = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
