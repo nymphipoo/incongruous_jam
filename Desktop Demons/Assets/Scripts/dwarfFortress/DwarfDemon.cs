@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testDemon : parentDemon
+public class DwarfDemon : parentDemon
 {
 
-    [SerializeField]public bool startRight = true;
-    [SerializeField] bool gravity = true;
+    [SerializeField] public bool startRight = true;
+    [SerializeField] protected bool gravity = true;
 
-    [SerializeField] float currentSpawnTimeLeft = 10;
-    [SerializeField] float minSpawnTime=10;
-    [SerializeField] float maxSpawnTime=20;
-    [SerializeField] float maxMen = 10;
+    [SerializeField] protected float currentSpawnTimeLeft = 10;
+    [SerializeField] protected float minSpawnTime = 10;
+    [SerializeField] protected float maxSpawnTime = 20;
+    [SerializeField] protected float maxMen = 10;
 
 
-    [SerializeField] GameObject parent;
-    [SerializeField] bool hasParent = false;
+    [SerializeField] protected GameObject parent;
+    [SerializeField] protected bool hasParent = false;
 
-    [SerializeField] GameObject dwarf;
+    [SerializeField] protected GameObject dwarf;
 
-    [SerializeField] bool onGround = true;
-    [SerializeField] float gravityStrength = 5;
-    [SerializeField] float jumpStrength = 5;
+    [SerializeField] protected bool onGround = true;
+    [SerializeField] protected float gravityStrength = 5;
+    [SerializeField] protected float jumpStrength = 5;
 
-    [SerializeField] Transform up;
-    [SerializeField] Transform down;
-    [SerializeField] Transform right;
-    [SerializeField] Transform left;
+    [SerializeField] protected Transform up;
+    [SerializeField] protected Transform down;
+    [SerializeField] protected Transform right;
+    [SerializeField] protected Transform left;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,12 +58,25 @@ public class testDemon : parentDemon
     // Update is called once per frame
     void FixedUpdate()
     {
+        CheckIfBounce();
+        onGround = isOnGround();
+        applyGravity();
+
+        base.updateVelocity();
+
+        if (hasParent)
+            rb2d.velocity = new Vector2(parent.transform.GetComponent<Rigidbody2D>().velocity.x, rb2d.velocity.y); ;
+    }
+
+    protected void CheckIfBounce()
+    {
         Transform horizontalDest;
         if (internalSpeed.x > 0)
         {
             horizontalDest = right;
         }
-        else { 
+        else
+        {
             horizontalDest = left;
         }
 
@@ -76,13 +89,29 @@ public class testDemon : parentDemon
             Jump();
 
         }
+    }
 
-        hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y));
+    virtual protected void applyGravity()
+    {
+
+        if (!onGround)
+        {
+            hasParent = false;
+            internalSpeed.y -= gravityStrength * Time.fixedDeltaTime;
+        }
+        else if (onGround && internalSpeed.y < 0)
+        {
+            internalSpeed.y = 0;
+        }
+    }
+
+    virtual protected bool isOnGround()
+    {
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y));
         if (!hit)
         {
             hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y));
         }
-        onGround = (hit);
 
         if (hit)
         {
@@ -91,28 +120,16 @@ public class testDemon : parentDemon
                 parent = hit.collider.gameObject;
                 hasParent = true;
             }
-            else {
+            else
+            {
                 hasParent = false;
             }
-            
         }
-
-        if (!onGround)
-        {
-            hasParent = false;
-            internalSpeed.y -= gravityStrength * Time.fixedDeltaTime;
-        }
-        else if(onGround&&internalSpeed.y<0) {
-            internalSpeed.y = 0;
-        }
-
-        base.updateVelocity();
-
-        if (hasParent)
-            rb2d.velocity = new Vector2(parent.transform.GetComponent<Rigidbody2D>().velocity.x, rb2d.velocity.y); ;
+        return (hit);
     }
 
-    public void Jump() {
+    virtual public void Jump()
+    {
         print("jump");
         internalSpeed.y = jumpStrength;
     }
@@ -122,10 +139,10 @@ public class testDemon : parentDemon
         print(dwarf);
         GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
         dwarfDemon.transform.position = transform.position;
-        testDemon demonScript = dwarfDemon.GetComponent<testDemon>();
+        DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();
         demonScript.dwarf = dwarf;
         demonScript.startRight = !(internalSpeed.x > 0);
         demonScript.Jump();
-        
+
     }
 }
