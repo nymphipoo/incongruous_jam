@@ -9,7 +9,7 @@ public class parentDemon : MonoBehaviour
     [SerializeField] protected Vector2 internalSpeed;
     [SerializeField] protected Vector2 externalSpeed;
 
-     protected float externalSpeedDecayRate = 5f;//this default value will decrease external speed by 1 a second;
+    protected float externalSpeedDecayRate = 5f;//this default value will decrease external speed by 1 a second;
 
     [SerializeField] protected creatureCounter creatureCounterScript;
 
@@ -17,6 +17,8 @@ public class parentDemon : MonoBehaviour
     protected LayerMask creatureCollisionLayers=9;
     [SerializeField]
     EvolutionFood[] foodNameToEvo;
+    [SerializeField] protected float evolutionDelay =1;
+    [SerializeField] protected float evolutionDelayStep = .1f;
     [System.Serializable]
     public class EvolutionFood
     {
@@ -118,17 +120,17 @@ public class parentDemon : MonoBehaviour
                     Instantiate(eachPair.prefabToEvolveTo, transform.position, transform.rotation);
                     //we ideally would have a custom destroy function for all the items too
                     food.Eaten(transform);
-                    Evolving(food.foodName, eachPair.prefabToEvolveTo.name);
+                    Evolving(food.foodName, eachPair.prefabToEvolveTo);
                 }
             }
         }
     }
 
-    virtual protected void Evolving(string foodName, string evolutionName)
+    virtual protected void Evolving(string foodName, GameObject evolution)
     {
         if (creatureCounterScript)
             creatureCounterScript.evolved(gameObject);
-        Destroy(gameObject);
+        EvolutionUnderway(evolution);
     }
 
     virtual public void Killed()
@@ -142,6 +144,26 @@ public class parentDemon : MonoBehaviour
         if (creatureCounterScript)
             creatureCounterScript.RemoveCreature(gameObject, true);
         Destroy(gameObject);
+    }
+
+    IEnumerator EvolutionUnderway(GameObject newCreature)
+    {
+        Vector3 pos = transform.position;
+        for (float i = 0;i<evolutionDelay;i+=evolutionDelayStep)
+        {
+            transform.position = pos;
+            yield return new WaitForSeconds(evolutionDelayStep);
+        }
+        CreateNewCreature(newCreature);
+        Destroy(gameObject);
+    }
+
+    protected void CreateNewCreature(GameObject evolution) {
+        GameObject newCreature = Instantiate(evolution, transform.position, transform.rotation);
+        newCreature.transform.position = transform.position;
+        newCreature.transform.parent = transform.parent;
+        Destroy(gameObject);
+
     }
 }
 
