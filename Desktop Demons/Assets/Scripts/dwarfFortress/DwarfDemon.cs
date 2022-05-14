@@ -62,6 +62,7 @@ public class DwarfDemon : parentDemon
         onGround = isOnGround();
         applyGravity();
 
+        print(internalSpeed);
         base.updateVelocity();
 
         if (hasParent)
@@ -93,7 +94,6 @@ public class DwarfDemon : parentDemon
 
     virtual protected void applyGravity()
     {
-
         if (!onGround)
         {
             hasParent = false;
@@ -130,7 +130,6 @@ public class DwarfDemon : parentDemon
 
     virtual public void Jump()
     {
-        print("jump");
         internalSpeed.y = jumpStrength;
     }
 

@@ -102,13 +102,13 @@ public class parentDemon : MonoBehaviour
                     Instantiate(eachPair.prefabToEvolveTo, transform.position, transform.rotation);
                     //we ideally would have a custom destroy function for all the items too
                     food.Eaten(transform);
-                    Evolving();
+                    Evolving(food.foodName);
                 }
             }
         }
     }
 
-    virtual protected void Evolving()
+    virtual protected void Evolving(string foodName)
     {
         Destroy(gameObject);
     }
