@@ -357,6 +357,7 @@ MonoBehaviour:
   externalSpeed: {x: 0, y: 0}
   externalSpeedDecayRate: 0.01
   parentExternalSpeedDecay: 1
+  foodNameToEvo: []
   startRight: 1
 --- !u!61 &536931207
 BoxCollider2D:
@@ -830,6 +831,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6538445126796306038, guid: 9804e3b74a082804fbb11f0d8909a2af, type: 3}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 1555528082741187100, guid: 039055b8ffef02b42a3fa10acb8c5353, type: 3}
+    - target: {fileID: 6538445126796306038, guid: 9804e3b74a082804fbb11f0d8909a2af, type: 3}
+      propertyPath: sparksPrefab
+      value: 
+      objectReference: {fileID: 6250110180168778807, guid: 00d9e30a209456d45b9de64ccf3c6c13, type: 3}
     - target: {fileID: 6538445126796306040, guid: 9804e3b74a082804fbb11f0d8909a2af, type: 3}
       propertyPath: m_RootOrder
       value: 6

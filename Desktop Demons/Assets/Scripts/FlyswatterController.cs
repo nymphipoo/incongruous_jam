@@ -6,6 +6,7 @@ public class FlyswatterController : MonoBehaviour
 {
     [SerializeField] float followSpeedMax,followSpeedMin,minDistance,maxDistance, holdDelay,baseWiggle;
     [SerializeField] Sprite hoverSprite, holdSprite;
+    [SerializeField] GameObject sparksPrefab, bloodPrefab;
     Collider2D colRef;
     Rigidbody2D rigidRef;
     SpriteRenderer spriteRef;
@@ -43,14 +44,14 @@ public class FlyswatterController : MonoBehaviour
         Vector3 direction = new Vector3(mousePosition.x,mousePosition.y,transform.position.z) - transform.position;
         if (direction.magnitude > minDistance)
         {
-            rigidRef.AddForce(direction.normalized * Mathf.Clamp(followSpeedMax *((direction.magnitude)-minDistance /maxDistance),followSpeedMin,followSpeedMax) * Time.fixedDeltaTime,ForceMode2D.Impulse);
+            rigidRef.AddForce(direction.normalized * Mathf.Clamp(followSpeedMax *((direction.magnitude)-minDistance /maxDistance),followSpeedMin,followSpeedMax) * Time.fixedDeltaTime *transform.localScale.magnitude,ForceMode2D.Impulse);
             rigidRef.AddForce(Vector3.up * Mathf.Sin(Time.time)*baseWiggle, ForceMode2D.Impulse);
         }
 
     }
     void SlapStart()
     {
-        //do slap check
+
 
         //do force around slap maybe?
 
@@ -59,6 +60,26 @@ public class FlyswatterController : MonoBehaviour
         colRef.enabled = true;
         spriteRef.sprite = holdSprite;
         held = true;
+        //slap gfx
+        Instantiate(sparksPrefab, colRef.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+
+        //do slap check
+        Collider2D[] overlappingGuys = new Collider2D[5];
+        Physics2D.OverlapCollider(colRef, new ContactFilter2D(), overlappingGuys);
+        
+        foreach(Collider2D eachCol in overlappingGuys)
+        {
+            if (eachCol)
+            {
+                parentDemon eachDemon = eachCol.GetComponent<parentDemon>();
+                if (eachDemon)
+                {
+                    eachDemon.Killed();
+                    Instantiate(bloodPrefab, eachDemon.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+
+                }
+            }
+        }
     }
     void SlapEnd()
     {
