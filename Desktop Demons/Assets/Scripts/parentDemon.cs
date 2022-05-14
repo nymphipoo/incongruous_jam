@@ -9,7 +9,7 @@ public class parentDemon : MonoBehaviour
     [SerializeField] protected Vector2 internalSpeed;
     [SerializeField] protected Vector2 externalSpeed;
 
-    [SerializeField] protected float externalSpeedDecayRate = .01f;//this default value will decrease external speed by 1 a second;
+     protected float externalSpeedDecayRate = 5f;//this default value will decrease external speed by 1 a second;
 
     [SerializeField] protected bool parentExternalSpeedDecay = true;
     protected LayerMask creatureCollisionLayers=9;

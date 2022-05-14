@@ -6,6 +6,7 @@ public class JohnLeeFishStage1 : parentDemon
 {
 
     [SerializeField] bool startRight = true;
+    [SerializeField] bool flipChild = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,10 @@ public class JohnLeeFishStage1 : parentDemon
             GameObject hitObject = hit.collider.gameObject;
             internalSpeed.x = -internalSpeed.x;
             spriteRef.flipX = !spriteRef.flipX;
-            
+            if (flipChild)
+            {
+                transform.GetChild(0).localPosition = new Vector3(-transform.GetChild(0).localPosition.x, transform.GetChild(0).localPosition.y, transform.GetChild(0).localPosition.z);
+            }
         }
         Debug.DrawRay(offset, new Vector3(1, 0, 0), Color.white);
 

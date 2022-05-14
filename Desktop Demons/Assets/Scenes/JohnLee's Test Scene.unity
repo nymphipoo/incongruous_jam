@@ -369,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837578873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27, y: 1.68, z: 0}
+  m_LocalPosition: {x: 1.72, y: 2.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7761360287052227610}
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f410573d828ccaf49a08b6e9d6bc98fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractorForce: 4
+  attractorForce: 25
 --- !u!1 &1428773862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,10 +1025,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.68, y: -0.93}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.27460817, y: 0.23234722}
     oldSize: {x: 3.5, y: 3.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1052,13 +1052,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   internalSpeed: {x: 0, y: 0}
   externalSpeed: {x: 0, y: 0}
-  externalSpeedDecayRate: 0.01
   parentExternalSpeedDecay: 1
-  creatureCollisionLayers:
-    serializedVersion: 2
-    m_Bits: 0
   foodNameToEvo: []
   startRight: 1
+  flipChild: 1
 --- !u!4 &7761360287052227610
 Transform:
   m_ObjectHideFlags: 0
