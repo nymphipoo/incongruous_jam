@@ -12,10 +12,10 @@ public class UpsideDownDwarfDemon : DwarfDemon
 
     protected override bool isOnGround()
     {
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y));
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y), creatureCollisionLayers);
         if (!hit)
         {
-            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y));
+            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y), creatureCollisionLayers);
         }
 
         if (hit)
@@ -39,7 +39,6 @@ public class UpsideDownDwarfDemon : DwarfDemon
         {
             hasParent = false;
             internalSpeed.y += gravityStrength * Time.fixedDeltaTime;
-            print(internalSpeed.y);
         }
         else if (onGround && internalSpeed.y > 0)
         {

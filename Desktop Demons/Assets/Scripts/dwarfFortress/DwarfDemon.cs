@@ -61,8 +61,7 @@ public class DwarfDemon : parentDemon
         CheckIfBounce();
         onGround = isOnGround();
         applyGravity();
-
-        print(internalSpeed);
+        
         base.updateVelocity();
 
         if (hasParent)
@@ -81,7 +80,7 @@ public class DwarfDemon : parentDemon
             horizontalDest = left;
         }
 
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, horizontalDest.position);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, horizontalDest.position, creatureCollisionLayers);
         if (hit)
         {
             GameObject hitObject = hit.collider.gameObject;
@@ -107,10 +106,10 @@ public class DwarfDemon : parentDemon
 
     virtual protected bool isOnGround()
     {
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y));
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y), creatureCollisionLayers);
         if (!hit)
         {
-            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y));
+            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y), creatureCollisionLayers);
         }
 
         if (hit)

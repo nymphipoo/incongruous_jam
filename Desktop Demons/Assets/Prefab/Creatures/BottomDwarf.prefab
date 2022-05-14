@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097908559696607502}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097908559802914116}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097908559877641098}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,9 +100,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7097908561057311422}
   - component: {fileID: 7097908561057311423}
-  - component: {fileID: 7097908561057311421}
   - component: {fileID: 7097908561057311420}
   - component: {fileID: 7097908561057311416}
+  - component: {fileID: -8617636295222151338}
+  - component: {fileID: 1887450869522481625}
   m_Layer: 3
   m_Name: BottomDwarf
   m_TagString: Untagged
@@ -180,42 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7097908561057311421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7097908561057311417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93c40e01ce3a0a4ea7ddb677de3cd32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalSpeed: {x: 0, y: 0}
-  externalSpeed: {x: 0, y: 0}
-  externalSpeedDecayRate: 0.01
-  parentExternalSpeedDecay: 1
-  creatureCollisionLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  foodNameToEvo: []
-  startRight: 1
-  gravity: 1
-  currentSpawnTimeLeft: 10
-  minSpawnTime: 10
-  maxSpawnTime: 20
-  maxMen: 10
-  parent: {fileID: 0}
-  hasParent: 0
-  dwarf: {fileID: 0}
-  onGround: 1
-  gravityStrength: 5
-  jumpStrength: 5
-  up: {fileID: 7097908559877641098}
-  down: {fileID: 7097908561116111898}
-  right: {fileID: 7097908559802914116}
-  left: {fileID: 7097908559696607502}
 --- !u!61 &7097908561057311420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,6 +228,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8617636295222151338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097908561057311417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83ae61fc1e08af4395a7ecf3e422281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1
+--- !u!114 &1887450869522481625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097908561057311417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5595facee00d340b4bd00f962dfe57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internalSpeed: {x: 0, y: 0}
+  externalSpeed: {x: 0, y: 0}
+  creatureCounterScript: {fileID: 0}
+  parentExternalSpeedDecay: 1
+  foodNameToEvo:
+  - foodTag: boots
+    prefabToEvolveTo: {fileID: 7097908561057311417, guid: a6f5858af4c63c14bb8592cc283b3d67, type: 3}
+  startRight: 1
+  gravity: 1
+  currentSpawnTimeLeft: 10
+  minSpawnTime: 10
+  maxSpawnTime: 20
+  maxMen: 10
+  parent: {fileID: 0}
+  hasParent: 0
+  dwarf: {fileID: 7097908561057311417}
+  onGround: 1
+  gravityStrength: 5
+  jumpStrength: 5
+  up: {fileID: 7097908559877641098}
+  down: {fileID: 7097908561116111898}
+  right: {fileID: 7097908559802914116}
+  left: {fileID: 7097908559696607502}
 --- !u!1 &7097908561116111899
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097908561116111898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
