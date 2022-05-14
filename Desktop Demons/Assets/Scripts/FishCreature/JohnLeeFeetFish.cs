@@ -28,7 +28,7 @@ public class JohnLeeFeetFish : parentDemon
         {
             currentFallSpeed = Mathf.Clamp(currentFallSpeed + fallAccel * Time.deltaTime, 0, terminalFall);
             internalSpeed = -transform.up * currentFallSpeed;
-            RaycastHit2D behindYou = Physics2D.Raycast(transform.position, -transform.right, snapDistance);
+            RaycastHit2D behindYou = Physics2D.Raycast(transform.position, -transform.right, snapDistance,creatureCollisionLayers);
             if(behindYou && behindYou.collider)
             {
                 Flippo(behindYou.normal);
