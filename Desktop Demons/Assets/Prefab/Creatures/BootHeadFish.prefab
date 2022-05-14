@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2479542989912104259}
   - component: {fileID: 2479542989912104256}
   - component: {fileID: 2479542989912104260}
+  - component: {fileID: 4675036966993434812}
   m_Layer: 3
   m_Name: BootHeadFish
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   internalSpeed: {x: 0, y: 0}
   externalSpeed: {x: 0, y: 0}
+  creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
   startRight: 1
@@ -152,6 +154,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4675036966993434812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479542989912104261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539705f41c745f42af02046561c492f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1
 --- !u!1 &5322409480954792225
 GameObject:
   m_ObjectHideFlags: 0

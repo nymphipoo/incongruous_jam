@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8310210850817191495}
   - component: {fileID: 8310210850817191488}
   - component: {fileID: 8310210850817191490}
+  - component: {fileID: -3181217041444817802}
   m_Layer: 3
   m_Name: BootFish
   m_TagString: Untagged
@@ -48,12 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   internalSpeed: {x: 0, y: 0}
   externalSpeed: {x: 0, y: 0}
-  externalSpeedDecayRate: 0.01
+  creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
-  creatureCollisionLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  foodNameToEvo: []
+  foodNameToEvo:
+  - foodTag: lightbulb
+    prefabToEvolveTo: {fileID: 165739247460399916, guid: 16cc3c7db3e1f7742b10083ad031a8c5, type: 3}
   grounded: 0
   fallAccel: 5
   terminalFall: 20
@@ -163,3 +163,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2882752, y: 1.5748267}
   m_EdgeRadius: 0
+--- !u!114 &-3181217041444817802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310210850817191489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539705f41c745f42af02046561c492f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1

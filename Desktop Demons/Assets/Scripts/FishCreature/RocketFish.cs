@@ -12,7 +12,7 @@ public class RocketFish : parentDemon
     void Start()
     {
         currentSpeed = startSpeed;
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - Random.Range(-15, 15));
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - Random.Range(-45, 45));
 
         base.Start();
     }

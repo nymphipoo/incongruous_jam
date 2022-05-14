@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7203880535653549511}
   - component: {fileID: 7203880535653549508}
   - component: {fileID: 7203880535653549504}
+  - component: {fileID: 3883945525893894027}
   m_Layer: 3
   m_Name: Fish
   m_TagString: Untagged
@@ -48,13 +49,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   internalSpeed: {x: 0, y: 0}
   externalSpeed: {x: 0, y: 0}
-  externalSpeedDecayRate: 0.01
+  creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
-  creatureCollisionLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  foodNameToEvo: []
+  foodNameToEvo:
+  - foodTag: boots
+    prefabToEvolveTo: {fileID: 8310210850817191489, guid: 1074e3012c8848e419ebae30e025c94a, type: 3}
+  - foodTag: lightbulb
+    prefabToEvolveTo: {fileID: 4011765859976843535, guid: 85dbfb3cdc1c507488eb380ebfb707a1, type: 3}
   startRight: 1
+  flipChild: 0
 --- !u!212 &7203880535653549511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,3 +157,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3883945525893894027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203880535653549505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3539705f41c745f42af02046561c492f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1
