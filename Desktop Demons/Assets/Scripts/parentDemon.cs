@@ -14,7 +14,13 @@ public class parentDemon : MonoBehaviour
     [SerializeField] protected bool parentExternalSpeedDecay = true;
 
     [SerializeField]
-    Dictionary<string, parentDemon> foodNameToEvo;
+    EvolutionFood[] foodNameToEvo;
+    [System.Serializable]
+    public class EvolutionFood
+    {
+        public string foodTag;
+        public GameObject prefabToEvolveTo;
+    }
 
     // Start is called before the first frame update
     protected void Start()
@@ -87,13 +93,15 @@ public class parentDemon : MonoBehaviour
         eatable food = collision.gameObject.GetComponent<eatable>();
         if (food)
         {
+            foreach(EvolutionFood eachPair in foodNameToEvo) { 
             //this will be changed when we determine how to this
-            if (foodNameToEvo.ContainsKey(food.foodName))
-            {
-                Instantiate(foodNameToEvo[food.name], transform.position, transform.rotation);
-                //we ideally would have a custom destroy function for all the items too
-                food.Eaten(transform);
-                Evolving();
+                if (eachPair.foodTag==food.foodName)
+                {
+                    Instantiate(eachPair.prefabToEvolveTo, transform.position, transform.rotation);
+                    //we ideally would have a custom destroy function for all the items too
+                    food.Eaten(transform);
+                    Evolving();
+                }
             }
         }
     }
@@ -103,7 +111,7 @@ public class parentDemon : MonoBehaviour
         Destroy(gameObject);
     }
 
-    virtual protected void Killed()
+    virtual public void Killed()
     {
         Destroy(gameObject);
     }
