@@ -11,6 +11,8 @@ public class parentDemon : MonoBehaviour
 
      protected float externalSpeedDecayRate = 5f;//this default value will decrease external speed by 1 a second;
 
+    [SerializeField] protected creatureCounter creatureCounterScript;
+
     [SerializeField] protected bool parentExternalSpeedDecay = true;
     protected LayerMask creatureCollisionLayers=9;
     [SerializeField]
@@ -23,6 +25,20 @@ public class parentDemon : MonoBehaviour
     }
 
     protected SpriteRenderer spriteRef;
+
+    private void Awake()
+    {
+        GameObject cc = GameObject.Find("/CreatureCounter");
+        if (cc) {
+            creatureCounter ccs=  cc.GetComponent<creatureCounter>();
+            if (ccs)
+            {
+                creatureCounterScript = ccs;
+                creatureCounterScript.AddCreature(gameObject);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     virtual protected void Start()
     {
@@ -102,19 +118,29 @@ public class parentDemon : MonoBehaviour
                     Instantiate(eachPair.prefabToEvolveTo, transform.position, transform.rotation);
                     //we ideally would have a custom destroy function for all the items too
                     food.Eaten(transform);
-                    Evolving(food.foodName);
+                    Evolving(food.foodName, eachPair.prefabToEvolveTo.name);
                 }
             }
         }
     }
 
-    virtual protected void Evolving(string foodName)
+    virtual protected void Evolving(string foodName, string evolutionName)
     {
+        if (creatureCounterScript)
+            creatureCounterScript.evolved(gameObject);
         Destroy(gameObject);
     }
 
     virtual public void Killed()
     {
+        if(creatureCounterScript)
+            creatureCounterScript.RemoveCreature(gameObject,false);
+        Destroy(gameObject);
+    }
+
+    virtual public void Escaped() {
+        if (creatureCounterScript)
+            creatureCounterScript.RemoveCreature(gameObject, true);
         Destroy(gameObject);
     }
 }
