@@ -29,7 +29,7 @@ public class testDemon : parentDemon
         Vector2 fwd = transform.TransformDirection(internalSpeed);
         Vector2 length = rb2d.velocity;
 
-        print("test "+Physics.Raycast(transform.position, transform.TransformDirection(Vector2.right) * 1));
+        print("test "+Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right) * 1));
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * 1, Color.white);
 
 
