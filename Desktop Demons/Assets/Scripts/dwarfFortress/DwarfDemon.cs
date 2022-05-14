@@ -56,7 +56,7 @@ public class DwarfDemon : parentDemon
         currentSpawnTimeLeft -= Time.deltaTime;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    virtual protected void FixedUpdate()
     {
         CheckIfBounce();
         onGround = isOnGround();
