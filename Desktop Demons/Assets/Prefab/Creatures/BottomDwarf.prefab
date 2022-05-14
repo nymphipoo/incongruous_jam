@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7097908561057311421}
   - component: {fileID: 7097908561057311420}
   - component: {fileID: 7097908561057311416}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomDwarf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +196,9 @@ MonoBehaviour:
   externalSpeed: {x: 0, y: 0}
   externalSpeedDecayRate: 0.01
   parentExternalSpeedDecay: 1
+  creatureCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
   foodNameToEvo: []
   startRight: 1
   gravity: 1
