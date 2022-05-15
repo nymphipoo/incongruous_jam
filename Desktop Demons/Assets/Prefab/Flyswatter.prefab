@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6538445126796306040}
   - component: {fileID: 6538445126796306041}
-  - component: {fileID: 4302834994728153042}
   - component: {fileID: 6538445126796306038}
   - component: {fileID: 6538445126796306039}
   m_Layer: 0
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6538445126796306043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1817868, y: -0.35958862, z: -0.103212796}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.22954357, y: 0.22954357, z: 0.22954357}
   m_Children:
   - {fileID: 6538445126868366288}
   m_Father: {fileID: 0}
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 440a0f474bf4c9b4ebb57afa3d4fc0ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4302834994728153042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538445126796306043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc0b85aaa78cbc46a6c31bdf15d34e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkFrames:
-  - {fileID: 0}
-  frameTime: 0
 --- !u!114 &6538445126796306038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +167,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6538445126868366291}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

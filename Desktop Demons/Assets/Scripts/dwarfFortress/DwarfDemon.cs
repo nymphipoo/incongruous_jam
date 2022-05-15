@@ -26,11 +26,20 @@ public class DwarfDemon : parentDemon
 
     [SerializeField] protected Transform up;
     [SerializeField] protected Transform down;
+
+    [SerializeField] protected Transform rightUP;
+    [SerializeField] protected Transform leftUP;
+
     [SerializeField] protected Transform right;
     [SerializeField] protected Transform left;
+
+    [SerializeField] GameObject sparkles;
+
+
     // Start is called before the first frame update
     override protected void Start()
     {
+        base.Start();
         currentSpawnTimeLeft = Random.Range(minSpawnTime, maxSpawnTime);
         if (startRight)
         {
@@ -40,7 +49,6 @@ public class DwarfDemon : parentDemon
         {
             internalSpeed = new Vector2(-2, 0);
         }
-        base.Start();
     }
 
     private void Update()
@@ -75,17 +83,28 @@ public class DwarfDemon : parentDemon
 
     protected void CheckIfBounce()
     {
-        Transform horizontalDest;
+        RaycastHit2D hit;
+
         if (internalSpeed.x > 0)
         {
-            horizontalDest = right;
+            GetComponent<SpriteRenderer>().flipX = true;
+            hit = Physics2D.Linecast(transform.position, right.position, creatureCollisionLayers); 
+            if(!hit)
+               hit= Physics2D.Linecast(transform.position, rightUP.position, creatureCollisionLayers);
+
+            Debug.DrawLine(transform.position, right.position, Color.black);
+            Debug.DrawLine(transform.position, rightUP.position, Color.black);
         }
         else
         {
-            horizontalDest = left;
-        }
+            GetComponent<SpriteRenderer>().flipX = false;
+            hit = Physics2D.Linecast(transform.position, left.position, creatureCollisionLayers);
+            if (!hit)
+                hit = Physics2D.Linecast(transform.position, leftUP.position, creatureCollisionLayers);
 
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, horizontalDest.position, creatureCollisionLayers);
+            Debug.DrawLine(transform.position, left.position, Color.black);
+            Debug.DrawLine(transform.position, leftUP.position, Color.black);
+        }
         if (hit)
         {
             GameObject hitObject = hit.collider.gameObject;
@@ -111,18 +130,16 @@ public class DwarfDemon : parentDemon
 
     virtual protected bool isOnGround()
     {
-        print("check");
-        Debug.DrawLine(transform.position, new Vector2(left.position.x, down.position.y), Color.black);
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y), creatureCollisionLayers);
+        Debug.DrawLine(transform.position, new Vector2(left.position.x + .1f, down.position.y), Color.black);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x+.1f, down.position.y), creatureCollisionLayers);
         if (!hit)
         {
-            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y), creatureCollisionLayers);
-            Debug.DrawLine(transform.position, new Vector2(right.position.x, down.position.y), Color.black);
+            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x - .1f, down.position.y), creatureCollisionLayers);
+            Debug.DrawLine(transform.position, new Vector2(right.position.x - .1f, down.position.y), Color.black);
         }
 
         if (hit)
         {
-            print("on ground");
             if (hit.collider.gameObject.GetComponent<parentDemon>())
             {
                 parent = hit.collider.gameObject;
@@ -143,13 +160,25 @@ public class DwarfDemon : parentDemon
 
     protected void SpawnDwarf()
     {
-        print(dwarf + ":" + transform.parent);
         GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
+        StartCoroutine(sparkle());
         dwarfDemon.transform.position = transform.position;
         DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();
+        StartCoroutine(demonScript.sparkle());
         demonScript.dwarf = dwarf;
         demonScript.startRight = !(internalSpeed.x > 0);
         demonScript.Jump();
+    }
 
+    public IEnumerator sparkle()
+    {
+        for (float i = 0; i < 1; i += .1f)
+        {
+            if (sparkles != null)
+            {
+                Instantiate(sparkles, transform.position + new Vector3(Random.Range(-.1f, .1f), Random.Range(-.5f, .5f), 0), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            }
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

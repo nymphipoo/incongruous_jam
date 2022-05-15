@@ -38,6 +38,8 @@ public class JohnLeeBootHeadFish : parentDemon
         {
             transform.GetChild(0).localPosition = new Vector3(-transform.GetChild(0).localPosition.x, transform.GetChild(0).localPosition.y, transform.GetChild(0).localPosition.z);
         }
+
+        base.OnCollisionEnter2D(collision);
     }
 }
 

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4011765859976843535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.73, y: 1.84, z: 0}
-  m_LocalScale: {x: 0.35127157, y: 0.35127157, z: 0.35127157}
+  m_LocalScale: {x: 0.16715609, y: 0.16715609, z: 0.16715609}
   m_Children:
   - {fileID: 6636410035797460328}
   m_Father: {fileID: 0}
@@ -56,6 +56,8 @@ MonoBehaviour:
   foodNameToEvo:
   - foodTag: boots
     prefabToEvolveTo: {fileID: 2479542989912104261, guid: 47d1df76ee738294daa1a0ac119e2008, type: 3}
+  hitchHiker: {fileID: 0}
+  smokeShart: {fileID: 6250110180168778807, guid: 0ee59934c3e67664187b4911950859b3, type: 3}
   startRight: 1
   flipChild: 1
 --- !u!212 &4011765859976843529
@@ -123,10 +125,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2100008, y: -1.4697104}
+  m_Offset: {x: 0.19, y: 0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.66508186, y: 0.2534777}
     oldSize: {x: 8, y: 6}
     newSize: {x: 8, y: 6}
     adaptiveTilingThreshold: 0.5
@@ -134,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9630923, y: 1.1805792}
+  m_Size: {x: 1.9630923, y: 1.31}
   m_EdgeRadius: 0
 --- !u!50 &4011765859976843534
 Rigidbody2D:
@@ -171,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
+  sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
 --- !u!114 &608284804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6636410035797460331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.34, y: 1.03, z: 0}
+  m_LocalPosition: {x: 2.86, y: 2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4011765859976843528}

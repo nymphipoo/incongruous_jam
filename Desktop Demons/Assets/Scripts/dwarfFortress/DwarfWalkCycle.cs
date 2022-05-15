@@ -5,16 +5,16 @@ using UnityEngine;
 public class DwarfWalkCycle : AlwaysWalkCycling
 {
 
-    [SerializeField] Sprite[] Red;
     [SerializeField] Sprite[] Blue;
     [SerializeField] Sprite[] Green;
+    [SerializeField] Sprite[] yellow;
 
     private void Awake()
     {
-        int dwarfColor = Random.Range(0, 2);
+        int dwarfColor = Random.Range(0, 3);
         if (dwarfColor == 0)
         {
-            walkFrames = Red;
+            walkFrames = yellow;
         }
         else if (dwarfColor == 1)
         {
@@ -24,16 +24,5 @@ public class DwarfWalkCycle : AlwaysWalkCycling
         {
             walkFrames = Green;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
