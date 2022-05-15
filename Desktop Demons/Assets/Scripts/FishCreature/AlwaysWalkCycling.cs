@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlwaysWalkCycling : MonoBehaviour
 {
-    [SerializeField] Sprite[] walkFrames;
+    [SerializeField] protected Sprite[] walkFrames;
     [SerializeField] float frameTime;
     SpriteRenderer spriteRef;
     float timer = 0;
