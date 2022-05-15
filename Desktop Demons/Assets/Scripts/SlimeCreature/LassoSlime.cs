@@ -9,6 +9,8 @@ public class LassoSlime : SlimeCreature
     Vector3 offsetFromTarget = new Vector3();
     bool latched = false;
     Collider2D colRef;
+
+    [SerializeField] AudioClip lassoClip;
     // Start is called before the first frame update
 
     private void Start()
@@ -58,6 +60,8 @@ public class LassoSlime : SlimeCreature
                 targetDemon.hitchHiker = this;
                 latched = true;
                 colRef.enabled = false;
+                GetComponent<AudioSource>().clip = lassoClip;
+                GetComponent<AudioSource>().Play();
             }
         }
         base.OnCollisionEnter2D(collision);

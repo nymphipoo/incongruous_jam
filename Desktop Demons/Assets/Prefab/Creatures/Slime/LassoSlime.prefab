@@ -119,6 +119,7 @@ MonoBehaviour:
   gravityMax: 15
   groundCast: {fileID: 5999946692041934055}
   target: {fileID: 0}
+  lassoClip: {fileID: 8300000, guid: 3742153bb3477704d9fe25748f3a4b93, type: 3}
 --- !u!114 &5999946691734310093
 MonoBehaviour:
   m_ObjectHideFlags: 0
