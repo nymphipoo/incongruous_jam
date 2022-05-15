@@ -116,7 +116,7 @@ public class DwarfDemon : parentDemon
             /* 
            int wah = Random.Range(0, waaah.Length - 1);
            GetComponent<AudioSource>().clip = (waaah[wah]);*/
-            if (Random.Range(0, 300)==1) {
+            if (Random.Range(0, 150)==1) {
                 GetComponent<AudioSource>().clip = (waaah);
             }
             GetComponent<AudioSource>().Play();

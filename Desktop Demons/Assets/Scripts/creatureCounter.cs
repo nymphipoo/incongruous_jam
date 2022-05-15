@@ -58,6 +58,9 @@ public class creatureCounter : MonoBehaviour
                 SceneManager.LoadScene(frontPage, LoadSceneMode.Single);
             }
         }
+        else if (Input.GetButtonDown("mute")) {
+            Camera.main.gameObject.GetComponent<AudioListener>().enabled = !Camera.main.gameObject.GetComponent<AudioListener>().enabled;
+        }
     }
 
     public void maingame()

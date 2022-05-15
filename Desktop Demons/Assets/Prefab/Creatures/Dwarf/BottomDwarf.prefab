@@ -214,7 +214,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dede827266c8a2f40be571e31bdab79c, type: 3}
   Green:
   - {fileID: 21300000, guid: 3fdd74e889277924b84d14740fbff0a0, type: 3}
-  - {fileID: 21300000, guid: 1c570818fd6e2f34f89c3c680085a5d6, type: 3}
+  - {fileID: 21300000, guid: a1d65515439e388479f47b0facc86023, type: 3}
   yellow:
   - {fileID: 21300000, guid: b7bd880bbf0cb5942aa230c00a23ca3b, type: 3}
   - {fileID: 21300000, guid: 70d93ac62a7374f4f8b6588bd4aa24b7, type: 3}
@@ -256,8 +256,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -232061735
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0e5551b95e647541bd7bcb3bb30be68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -401,7 +401,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.375
   m_Pitch: 1
   Loop: 0
   Mute: 0

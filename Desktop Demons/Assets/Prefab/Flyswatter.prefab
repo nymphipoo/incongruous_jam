@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6538445126796306038}
   - component: {fileID: 6538445126796306039}
   - component: {fileID: -5123683733357019199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flyswatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.46
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6538445126868366288}
   - component: {fileID: 1602403900121077974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Col
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -34,11 +34,10 @@ public class LegDuckie : parentDemon
         Vector2 fwd = transform.TransformDirection(internalSpeed);
         Vector2 length = rb2d.velocity;
 
-        Vector2 offset = new Vector2(transform.position.x, transform.position.y) + (rb2d.velocity.normalized * (transform.localScale.magnitude / 2));
-        RaycastHit2D hit = Physics2D.Raycast(offset, transform.TransformDirection(rb2d.velocity).normalized, 1, creatureCollisionLayers);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,new Vector2(rb2d.velocity.normalized.x,0), .5f, creatureCollisionLayers);
+        Debug.DrawRay(transform.position, new Vector2(rb2d.velocity.normalized.x, 0));
         if (hit)
         {
-            GameObject hitObject = hit.collider.gameObject;
             internalSpeed.x = -internalSpeed.x;
             spriteRef.flipX = !spriteRef.flipX;
         }
