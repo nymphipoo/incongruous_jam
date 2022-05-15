@@ -57,6 +57,7 @@ MonoBehaviour:
     prefabToEvolveTo: {fileID: 8310210850817191489, guid: 1074e3012c8848e419ebae30e025c94a, type: 3}
   - foodTag: lightbulb
     prefabToEvolveTo: {fileID: 4011765859976843535, guid: 85dbfb3cdc1c507488eb380ebfb707a1, type: 3}
+  hitchHiker: {fileID: 0}
   startRight: 0
   flipChild: 0
 --- !u!212 &7203880535653549511
