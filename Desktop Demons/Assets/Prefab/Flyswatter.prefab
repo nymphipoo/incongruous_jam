@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fe13dddfea5a9a946bbdfa7c8bc8923a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.31, y: 2.58}
@@ -104,8 +104,8 @@ MonoBehaviour:
   maxDistance: 15
   holdDelay: 0.3
   baseWiggle: 1
-  hoverSprite: {fileID: 21300000, guid: 9d838dc4f2ea11640879ab99da074c76, type: 3}
-  holdSprite: {fileID: 21300000, guid: fe13dddfea5a9a946bbdfa7c8bc8923a, type: 3}
+  hoverSprite: {fileID: 21300000, guid: b2c14cac5570f3d40b3b14977029806f, type: 3}
+  holdSprite: {fileID: 21300000, guid: a10142e93511e004caff0afd6f7348f4, type: 3}
   sparksPrefab: {fileID: 6250110180168778807, guid: 00d9e30a209456d45b9de64ccf3c6c13, type: 3}
   bloodPrefab: {fileID: 1555528082741187100, guid: 039055b8ffef02b42a3fa10acb8c5353, type: 3}
 --- !u!50 &6538445126796306039

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3424479289964676638}
   - component: {fileID: 6101840782791559246}
   m_Layer: 6
-  m_Name: boots
+  m_Name: cheesepuffs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5154dd0492b3db428d9bee8fb584b56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7eac2242138b3744fb11bcf187bd2ad9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f619b24d348ae33469ef7d6fec44c8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: boots
+  foodName: cheesepuffs
 --- !u!58 &6101840782791559246
 CircleCollider2D:
   m_ObjectHideFlags: 0

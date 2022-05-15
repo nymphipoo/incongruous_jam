@@ -11,6 +11,7 @@ public class DwarfHole : MonoBehaviour
 
     public IEnumerator escape(GameObject dwarf)
     {
+        dwarf.GetComponent<BoxCollider2D>().enabled = false;
         print("here at start");
         for (float i = 0; i < 1; i += increment) {
             dwarf.transform.position= Vector3.Lerp(transform.position, killlocation.position, i);

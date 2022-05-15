@@ -43,8 +43,9 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
     }
 
     void createhole() {
+        hasHole = true;
         GameObject dhole = Instantiate(dwarfhole);
         dhole.transform.position =new Vector3( transform.position.x, yHole, transform.position.z);
-        dhole.GetComponent<DwarfHole>().escape(gameObject);
+        //dhole.GetComponent<DwarfHole>().escape(gameObject);
     }
 }

@@ -111,14 +111,18 @@ public class DwarfDemon : parentDemon
 
     virtual protected bool isOnGround()
     {
+        print("check");
+        Debug.DrawLine(transform.position, new Vector2(left.position.x, down.position.y), Color.black);
         RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y), creatureCollisionLayers);
         if (!hit)
         {
             hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y), creatureCollisionLayers);
+            Debug.DrawLine(transform.position, new Vector2(right.position.x, down.position.y), Color.black);
         }
 
         if (hit)
         {
+            print("on ground");
             if (hit.collider.gameObject.GetComponent<parentDemon>())
             {
                 parent = hit.collider.gameObject;

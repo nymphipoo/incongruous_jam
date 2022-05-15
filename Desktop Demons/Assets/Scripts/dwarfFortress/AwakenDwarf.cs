@@ -4,65 +4,60 @@ using UnityEngine;
 
 public class AwakenDwarf : DwarfDemon
 {
-    GameObject awakenDwarfPrefab;
     string awakenFood = "book";
 
     [SerializeField]  float yLeave=-5;
 
-    [SerializeField] public float timeToLeave = -1;
+    static public float timeToLeave = -1;
     [SerializeField] float timeTillAction = 10;
 
-
+    
     protected override void Start()
     {
-        print("here");
-        base.Start();
-
         if (timeToLeave == -1)
         {
             timeToLeave = Time.time + timeTillAction;
             print(timeToLeave);
         }
-        else {
-            print("why:"+timeToLeave);
-        }
         shouldBreed = false;
+        base.Start();
     }
-
+    
     protected override void FixedUpdate()
     {
         if (Time.time > timeToLeave) {
-            print(timeToLeave);
             Leave();
         }
-        Infect();
         base.FixedUpdate();
+        Infect();
     }
 
     void Infect()
     {
-        CheckIfDwarfInfected( Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y), creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position,left.position, creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y), creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, up.position, creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y), creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, right.position, creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y), creatureCollisionLayers));
-        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, down.position, creatureCollisionLayers));
+        CheckIfDwarfInfected( Physics2D.Linecast(transform.position, new Vector2(left.position.x, down.position.y)));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position,left.position * 1.1f, creatureCollisionLayers));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y)));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, up.position*1.1f, creatureCollisionLayers));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y)));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, right.position * 1.1f, creatureCollisionLayers));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, new Vector2(right.position.x, down.position.y)));
+        CheckIfDwarfInfected(Physics2D.Linecast(transform.position, down.position * 1.1f));
     }
 
-    void CheckIfDwarfInfected(RaycastHit2D dwarf) {
-        if (dwarf) { 
-            DwarfDemon dwarfScript = dwarf.collider.gameObject.GetComponent<DwarfDemon>();
+    void CheckIfDwarfInfected(RaycastHit2D isDwarf) {
+        if (isDwarf) {
+            print(isDwarf.collider.name);
+            DwarfDemon dwarfScript = isDwarf.collider.gameObject.GetComponent<DwarfDemon>();
             if (dwarfScript)
             {
-                dwarfScript.Evolving(awakenFood, awakenDwarfPrefab);
+                dwarfScript.Evolving(awakenFood, dwarf);
             }
         }
     }
 
     private void Leave()
     {
+        Jump();
         GetComponent<BoxCollider2D>().enabled = false;
         if (transform.position.y >= yLeave)
         {

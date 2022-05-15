@@ -277,7 +277,7 @@ MonoBehaviour:
   right: {fileID: 7097908559802914116}
   left: {fileID: 7097908559696607502}
   dwarfhole: {fileID: 6333044099801391858, guid: 505b1a914369efb44bb602ff42dc7757, type: 3}
-  yHole: 0
+  yHole: 5
   miningTimeLeft: 0
   totalMiningTime: 10
 --- !u!1 &7097908561116111899

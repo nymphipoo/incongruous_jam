@@ -9,19 +9,6 @@ public class creatureCounter : MonoBehaviour
     List<string> killedList;
     List<string> escapedList;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddCreature(GameObject newCreature)
     {
         activeCreatures.Add(newCreature); 
@@ -44,5 +31,4 @@ public class creatureCounter : MonoBehaviour
             killedList.Add(deadCreature.name);
         }
     }
-
 }
