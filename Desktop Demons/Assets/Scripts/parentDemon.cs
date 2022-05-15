@@ -142,13 +142,19 @@ public class parentDemon : MonoBehaviour
         {
             creatureCounterScript.RemoveCreature(gameObject.name, false);
         }
-        Destroy(gameObject);
+        GetComponent<parentDemon>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject,1);
     }
 
     virtual public void Escaped() {
         if (creatureCounterScript)
             creatureCounterScript.RemoveCreature(gameObject.name, true);
-        Destroy(gameObject);
+        GetComponent<parentDemon>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, 1);
         if (hitchHiker)
         {
             hitchHiker.Escaped();

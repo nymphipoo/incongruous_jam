@@ -7,13 +7,19 @@ public class RocketFish : parentDemon
     [SerializeField] float startSpeed, speedIncreasePerBump, maxSpeed;
     [SerializeField] Vector3 slightAngleUp;
     [SerializeField] GameObject crack;
+    [SerializeField] AudioClip startUp,crackSound;
     float currentSpeed;
+    [SerializeField] AudioSource rocketAud;
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = startSpeed;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - Random.Range(-45, 45));
-
+        if (rocketAud)
+        {
+            rocketAud.PlayOneShot(startUp);
+            rocketAud.PlayScheduled(AudioSettings.dspTime + startUp.length);
+        }
         base.Start();
     }
 
@@ -29,6 +35,7 @@ public class RocketFish : parentDemon
         {
             Escaped();
             //play a crack sound
+            rocketAud.PlayOneShot(crackSound);
             Instantiate(crack, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         }
         else
