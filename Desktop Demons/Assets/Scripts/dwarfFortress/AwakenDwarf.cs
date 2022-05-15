@@ -67,7 +67,7 @@ public class AwakenDwarf : DwarfDemon
     void CheckIfDwarfInfected(RaycastHit2D isDwarf) {
         if (isDwarf) {
             DwarfDemon dwarfScript = isDwarf.collider.gameObject.GetComponent<DwarfDemon>();
-            if (dwarfScript)
+            if (dwarfScript&& dwarfScript.enabled)
             {
                 dwarfScript.Evolving(awakenFood, dwarf);
             }
