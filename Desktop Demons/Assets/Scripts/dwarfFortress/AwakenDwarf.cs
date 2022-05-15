@@ -87,7 +87,6 @@ public class AwakenDwarf : DwarfDemon
         GetComponent<Collider2D>().enabled = false;
         if (transform.position.y <= yLeave)
         {
-            print("here!"+ transform.position.y +":"+ yLeave);
             internalSpeed.y = 0;
             transform.position = new Vector3(transform.position.x, yLeave, transform.position.z);
         }
