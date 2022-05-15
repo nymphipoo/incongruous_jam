@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3424479289964676638}
   - component: {fileID: 6101840782791559246}
   m_Layer: 6
-  m_Name: lassso
+  m_Name: lasso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

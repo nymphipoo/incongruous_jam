@@ -28,6 +28,11 @@ public class AwakenDwarf : DwarfDemon
         if (Time.time > timeToLeave) {
             Leave();
         }
+        if (Time.time > timeToLeave+timeTillAction)
+        {
+            timeToLeave = -1;
+            Escaped();
+        }
         base.FixedUpdate();
         Infect();
     }
