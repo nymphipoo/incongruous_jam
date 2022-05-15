@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 165739247460399913}
   - component: {fileID: 165739247460399917}
   - component: {fileID: -2478699085070939948}
+  - component: {fileID: 2118873930}
   m_Layer: 3
   m_Name: RocketFish
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 165739247460399916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.71, y: -0.55, z: 0}
-  m_LocalScale: {x: 0.44699, y: 0.44699, z: 0.44699}
+  m_LocalScale: {x: 0.36699608, y: 0.36699608, z: 0.36699608}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,9 +99,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 02fbaa97532bb4e419f1408942f2fb25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d2cbca541e81cf4cb0c3c8579a7c2f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -122,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.6829959, y: 0.33114946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.17, y: 2.94}
+    oldSize: {x: 8, y: 6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.3659914, y: 1.6622989}
   m_EdgeRadius: 0
 --- !u!50 &165739247460399917
 Rigidbody2D:
@@ -170,3 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
+--- !u!114 &2118873930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165739247460399916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ed151becabbfc409c02ea64166bc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkFrames:
+  - {fileID: 21300000, guid: 36c0604ea9a8b934e8849b195a022c59, type: 3}
+  - {fileID: 21300000, guid: 3d2cbca541e81cf4cb0c3c8579a7c2f0, type: 3}
+  frameTime: 0.2
