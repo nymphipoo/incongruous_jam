@@ -143,7 +143,7 @@ public class parentDemon : MonoBehaviour
             creatureCounterScript.RemoveCreature(gameObject.name, false);
         }
         GetComponent<parentDemon>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject,1);
     }
