@@ -47,7 +47,6 @@ public class UpsideDownDwarfDemon : DwarfDemon
         }
         else if (onGround && internalSpeed.y > 0)
         {
-            print("on ground");
             internalSpeed.y = 0;
         }
     }

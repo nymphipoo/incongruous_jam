@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
-  sparkles: {fileID: 0}
+  sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
 --- !u!114 &1042233707095252529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +369,7 @@ MonoBehaviour:
   leftUP: {fileID: 3534591206637736589}
   right: {fileID: 7097908559802914116}
   left: {fileID: 7097908559696607502}
+  sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
   isOnCeilling: 0
 --- !u!1 &7097908561116111899
 GameObject:

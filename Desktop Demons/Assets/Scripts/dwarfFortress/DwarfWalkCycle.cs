@@ -12,7 +12,6 @@ public class DwarfWalkCycle : AlwaysWalkCycling
     private void Awake()
     {
         int dwarfColor = Random.Range(0, 3);
-        print("here"+dwarfColor);
         if (dwarfColor == 0)
         {
             walkFrames = yellow;

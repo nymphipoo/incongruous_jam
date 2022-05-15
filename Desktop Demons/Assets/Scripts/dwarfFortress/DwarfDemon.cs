@@ -32,6 +32,10 @@ public class DwarfDemon : parentDemon
 
     [SerializeField] protected Transform right;
     [SerializeField] protected Transform left;
+
+    [SerializeField] GameObject sparkles;
+
+
     // Start is called before the first frame update
     override protected void Start()
     {
@@ -157,11 +161,24 @@ public class DwarfDemon : parentDemon
     protected void SpawnDwarf()
     {
         GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
+        StartCoroutine(sparkle());
         dwarfDemon.transform.position = transform.position;
         DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();
+        StartCoroutine(demonScript.sparkle());
         demonScript.dwarf = dwarf;
         demonScript.startRight = !(internalSpeed.x > 0);
         demonScript.Jump();
+    }
 
+    public IEnumerator sparkle()
+    {
+        for (float i = 0; i < 1; i += .1f)
+        {
+            if (sparkles != null)
+            {
+                Instantiate(sparkles, transform.position + new Vector3(Random.Range(-.1f, .1f), Random.Range(-.5f, .5f), 0), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            }
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }
