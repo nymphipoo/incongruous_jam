@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3424479289964676638}
   - component: {fileID: 6101840782791559246}
   m_Layer: 6
-  m_Name: boots
+  m_Name: book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.13861692, g: 0.40404484, b: 0.8396226, a: 1}
+  m_Color: {r: 0.23584908, g: 0.094562136, b: 0.094562136, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f619b24d348ae33469ef7d6fec44c8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: boots
+  foodName: book
 --- !u!58 &6101840782791559246
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -102,10 +102,10 @@ GameObject:
   - component: {fileID: 7097908561057311423}
   - component: {fileID: 7097908561057311420}
   - component: {fileID: 7097908561057311416}
-  - component: {fileID: -7896148333803315699}
-  - component: {fileID: 1042233707095252529}
+  - component: {fileID: -8617636295222151338}
+  - component: {fileID: 1887450869522481625}
   m_Layer: 3
-  m_Name: bootDwarf
+  m_Name: BottomDwarf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 7097908561057311417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.22685081, y: -4.3615685, z: 8.080253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 7097908559877641098}
   - {fileID: 7097908561116111898}
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0e5551b95e647541bd7bcb3bb30be68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +198,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10, y: 10}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -228,7 +228,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-7896148333803315699
+--- !u!114 &-8617636295222151338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83ae61fc1e08af4395a7ecf3e422281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1042233707095252529
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1
+--- !u!114 &1887450869522481625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,16 +251,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7097908561057311417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c5d4745485da744b66107931e52bc4, type: 3}
+  m_Script: {fileID: 11500000, guid: ab5595facee00d340b4bd00f962dfe57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   internalSpeed: {x: 0, y: 0}
   externalSpeed: {x: 0, y: 0}
   creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
-  foodNameToEvo: []
-  evolutionDelay: 1
-  evolutionDelayStep: 0.1
+  foodNameToEvo:
+  - foodTag: boots
+    prefabToEvolveTo: {fileID: 7097908561057311417, guid: a6f5858af4c63c14bb8592cc283b3d67, type: 3}
+  - foodTag: book
+    prefabToEvolveTo: {fileID: 7097908561057311417, guid: 6df09ce3efca78f4c8097c6ea6d69955, type: 3}
   startRight: 1
   gravity: 1
   currentSpawnTimeLeft: 10
@@ -267,6 +271,7 @@ MonoBehaviour:
   maxMen: 10
   parent: {fileID: 0}
   hasParent: 0
+  shouldBreed: 1
   dwarf: {fileID: 7097908561057311417}
   onGround: 1
   gravityStrength: 5
