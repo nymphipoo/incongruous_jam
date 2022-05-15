@@ -27,7 +27,6 @@ public class RocketFish : parentDemon
     {
         if (currentSpeed > maxSpeed)
         {
-            print("ye?");
             Escaped();
             //play a crack sound
             Instantiate(crack, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
