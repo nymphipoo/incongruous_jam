@@ -12,6 +12,8 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
     [SerializeField] float miningTimeLeft;
     [SerializeField] float totalMiningTime = 10;
 
+    [SerializeField] AudioClip digging;
+
     protected override void Start()
     {
         base.Start();
@@ -26,6 +28,13 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
         if (onGround&&isOnCeilling)
         {
             miningTimeLeft -= Time.fixedDeltaTime;
+            if (!GetComponent<AudioSource>().isPlaying) { 
+                GetComponent<AudioSource>().clip = digging;
+                GetComponent<AudioSource>().pitch = Random.Range(.95f, 1.05f);
+                GetComponent<AudioSource>().Play();
+            }
+
+
             if (miningTimeLeft < 0) {
                 if(!hasHole)
                     createhole();

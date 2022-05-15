@@ -331,8 +331,8 @@ MonoBehaviour:
   evolutionDelay: 1
   evolutionDelayStep: 0.1
   sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
-  evolveSound1: {fileID: 0}
-  evolvesSound2: {fileID: 0}
+  evolveSound1: {fileID: 8300000, guid: 4a6dc220d9abc0045aab50e8cbdb852a, type: 3}
+  evolvesSound2: {fileID: 8300000, guid: a1e3eb84db647dc489e763526e12a4e0, type: 3}
 --- !u!114 &9073921394723725900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,8 +351,16 @@ MonoBehaviour:
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
   hitchHiker: {fileID: 0}
-  deathNoise: {fileID: 0}
-  collisionNoises: []
+  deathNoise: {fileID: 8300000, guid: b3ca593c98912e34b9d8a86b8a99c830, type: 3}
+  collisionNoises:
+  - {fileID: 8300000, guid: 31cff2f51238146468a5c95aa8f36c6c, type: 3}
+  - {fileID: 8300000, guid: 8db56278c3e84aa4d9ce62b2c1177177, type: 3}
+  - {fileID: 8300000, guid: 1deff6612cff9a343af9bf148efea6c6, type: 3}
+  - {fileID: 8300000, guid: 70afe7f1c6565754483d7aa1d61ead0f, type: 3}
+  - {fileID: 8300000, guid: efc4119798f40664f9e9e4c1f96b8887, type: 3}
+  - {fileID: 8300000, guid: 021386ec89379234cad2cb5a241d3782, type: 3}
+  - {fileID: 8300000, guid: a490b148af194c049ad5811fbb5c83ca, type: 3}
+  - {fileID: 8300000, guid: 9857b9f4ab26720498b3ba324cfb9ef3, type: 3}
   smokeShart: {fileID: 0}
   startRight: 1
   gravity: 1
@@ -374,13 +382,14 @@ MonoBehaviour:
   right: {fileID: 7097908559802914116}
   left: {fileID: 7097908559696607502}
   sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
-  sparkleSound: {fileID: 0}
-  waaah: {fileID: 0}
+  sparkleSound: {fileID: 8300000, guid: bad5e03ec458e3c4bbc5f9e694d4316a, type: 3}
+  waaah: {fileID: 8300000, guid: 643a7110c5dc49843acda4eabe858dbc, type: 3}
   isOnCeilling: 0
   dwarfhole: {fileID: 6333044099801391858, guid: 505b1a914369efb44bb602ff42dc7757, type: 3}
   yHole: 4.5
   miningTimeLeft: 0
   totalMiningTime: 10
+  digging: {fileID: 8300000, guid: ad7c1a8ca142f7e4a9a5876021eb6fea, type: 3}
 --- !u!82 &2428928271919212158
 AudioSource:
   m_ObjectHideFlags: 0
@@ -393,7 +402,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.375
   m_Pitch: 1
   Loop: 0
   Mute: 0
