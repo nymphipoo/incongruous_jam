@@ -56,6 +56,8 @@ public class JohnLeeFeetFish : parentDemon
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Flippo(collision.GetContact(0).normal);
+
+        base.OnCollisionEnter2D(collision);
     }
     void Flippo(Vector3 normal)
     {

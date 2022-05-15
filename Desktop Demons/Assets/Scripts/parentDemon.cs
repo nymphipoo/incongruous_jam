@@ -25,9 +25,13 @@ public class parentDemon : MonoBehaviour
         public GameObject prefabToEvolveTo;
     }
 
+    [SerializeField] AudioClip deathNoise;
+    [SerializeField] AudioClip [] collisionNoises;
+
     protected SpriteRenderer spriteRef;
-
-
+    [SerializeField] GameObject smokeShart;
+     float hitSmokeDelay=.5f;
+    float smokeTimer=0;
     // Start is called before the first frame update
     virtual protected void Start()
     {
@@ -43,6 +47,7 @@ public class parentDemon : MonoBehaviour
 
     virtual protected void updateVelocity()
     {
+        smokeTimer += Time.deltaTime;
         Movement();
         rb2d.velocity = internalSpeed+externalSpeed;
     }
@@ -131,9 +136,10 @@ public class parentDemon : MonoBehaviour
 
     virtual public void Killed()
     {
+        GetComponent<AudioSource>().clip=  deathNoise;
+        GetComponent<AudioSource>().Play();
         if (creatureCounterScript)
         {
-            print("here2"+ gameObject.name);
             creatureCounterScript.RemoveCreature(gameObject.name, false);
         }
         Destroy(gameObject);
@@ -148,8 +154,39 @@ public class parentDemon : MonoBehaviour
             hitchHiker.Escaped();
         }
     }
-
-
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (smokeTimer >= hitSmokeDelay)
+        {
+            int selected =(int)Mathf.Floor( Random.Range(0, collisionNoises.Length));
+            GetComponent<AudioSource>().clip= collisionNoises[selected];
+            GetComponent<AudioSource>().pitch = Random.Range(.9f,1.1f);
+            GetComponent<AudioSource>().Play();
+            smokeTimer = 0;
+            if (smokeShart != null )
+            {
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            }
+        }
+    }
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (smokeTimer >= hitSmokeDelay)
+        {
+            smokeTimer = 0;
+            if (smokeShart != null && (collision.collider.gameObject.layer==LayerMask.NameToLayer("Creatures")) )
+            {
+                Instantiate(smokeShart, collision.GetContact(0).point+new Vector2(Random.Range(-.4f,.4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                Instantiate(smokeShart, collision.GetContact(0).point + new Vector2(Random.Range(-.4f, .4f), Random.Range(-.4f, .4f)), Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            }
+        }
+    }
 }
 
 
