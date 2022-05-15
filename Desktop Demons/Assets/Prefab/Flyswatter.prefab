@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6538445126796306038}
   - component: {fileID: 6538445126796306039}
   - component: {fileID: -5123683733357019199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flyswatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
