@@ -123,20 +123,20 @@ public class parentDemon : MonoBehaviour
         internalSpeed = new Vector2(0, 0);
         rb2d.velocity = new Vector2(0, 0);
         if (creatureCounterScript)
-            creatureCounterScript.evolved(gameObject);
+            creatureCounterScript.evolved(gameObject.name);
         StartCoroutine(GetComponent<EvoltionDelay>().EvolutionUnderway(evolution));
     }
 
     virtual public void Killed()
     {
         if(creatureCounterScript)
-            creatureCounterScript.RemoveCreature(gameObject,false);
+            creatureCounterScript.RemoveCreature(gameObject.name, false);
         Destroy(gameObject);
     }
 
     virtual public void Escaped() {
         if (creatureCounterScript)
-            creatureCounterScript.RemoveCreature(gameObject, true);
+            creatureCounterScript.RemoveCreature(gameObject.name, true);
         Destroy(gameObject);
         if (hitchHiker)
         {
