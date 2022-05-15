@@ -108,6 +108,7 @@ public class creatureCounter : MonoBehaviour
         else {
             killedList.Add(deadCreature.name);
         }
+        isGameOver();
     }
 
     public void isGameOver()
