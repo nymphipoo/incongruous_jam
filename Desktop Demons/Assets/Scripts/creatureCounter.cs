@@ -9,6 +9,8 @@ public class creatureCounter : MonoBehaviour
     List<string> killedList;
     List<string> escapedList;
 
+    public static creatureCounter instance;
+
     public void AddCreature(GameObject newCreature)
     {
         activeCreatures.Add(newCreature); 

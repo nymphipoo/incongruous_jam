@@ -28,15 +28,7 @@ public class parentDemon : MonoBehaviour
 
     private void Awake()
     {
-        GameObject cc = GameObject.Find("/CreatureCounter");
-        if (cc) {
-            creatureCounter ccs=  cc.GetComponent<creatureCounter>();
-            if (ccs)
-            {
-                creatureCounterScript = ccs;
-                creatureCounterScript.AddCreature(gameObject);
-            }
-        }
+        creatureCounterScript = creatureCounter.instance;
     }
 
     // Start is called before the first frame update
