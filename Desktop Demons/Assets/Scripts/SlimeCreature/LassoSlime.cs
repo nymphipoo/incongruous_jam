@@ -7,10 +7,14 @@ public class LassoSlime : SlimeCreature
     [SerializeField] Transform target;
     parentDemon targetDemon;
     Vector3 offsetFromTarget = new Vector3();
+    bool latched = false;
+    Collider2D colRef;
     // Start is called before the first frame update
 
     private void Start()
     {
+        colRef = GetComponent<Collider2D>();
+        transform.rotation = Quaternion.identity;
         //print(mask.value);
         base.Start();
     }
@@ -23,6 +27,15 @@ public class LassoSlime : SlimeCreature
         }
         else
         {
+            if (latched)
+            {
+                latched = false;
+           
+                target = null;
+                targetDemon.hitchHiker = null;
+                targetDemon = null;
+                colRef.enabled = true;
+            }
             base.Update();
         }
     }
@@ -43,16 +56,13 @@ public class LassoSlime : SlimeCreature
                 target = collision.transform;
                 offsetFromTarget = transform.position - target.position;
                 targetDemon.hitchHiker = this;
+                latched = true;
+                colRef.enabled = false;
             }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.transform == target)
-        {
-            target = null;
-            targetDemon.hitchHiker = null;
-            targetDemon = null;
-        }
+        
     }
 }

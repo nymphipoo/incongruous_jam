@@ -73,7 +73,10 @@ MonoBehaviour:
   externalSpeed: {x: 0, y: 0}
   creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
-  foodNameToEvo: []
+  foodNameToEvo:
+  - foodTag: lasso
+    prefabToEvolveTo: {fileID: 5999946691734310094, guid: a602bc0d5fa09c34e90595b3c6691653, type: 3}
+  hitchHiker: {fileID: 0}
   grounded: 0
   fallAccel: 5
   terminalFall: 25

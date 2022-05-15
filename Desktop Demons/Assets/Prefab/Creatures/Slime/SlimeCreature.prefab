@@ -107,7 +107,8 @@ MonoBehaviour:
   parentExternalSpeedDecay: 1
   foodNameToEvo:
   - foodTag: cheesepuffs
-    prefabToEvolveTo: {fileID: 0}
+    prefabToEvolveTo: {fileID: 4801015122754509495, guid: 59fc03ebb36f7a64da62ff633da30d38, type: 3}
+  hitchHiker: {fileID: 0}
   jumpDelay: 1.5
   jumpForce: 4
   xRange: 7
