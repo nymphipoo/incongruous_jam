@@ -103,7 +103,6 @@ public class parentDemon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("here!");
         EncounteredFood(collision);
     }
   
@@ -119,16 +118,17 @@ public class parentDemon : MonoBehaviour
                 {
                     //we ideally would have a custom destroy function for all the items too
                     food.Eaten(transform);
-                    internalSpeed = new Vector2(0,0);
-                    rb2d.velocity = new Vector2(0, 0);
                     Evolving(food.foodName, eachPair.prefabToEvolveTo);
                 }
             }
         }
     }
 
-    virtual protected void Evolving(string foodName, GameObject evolution)
+    virtual public void Evolving(string foodName, GameObject evolution)
     {
+        print("evolving: " + evolution.name + " food:" + foodName);
+        internalSpeed = new Vector2(0, 0);
+        rb2d.velocity = new Vector2(0, 0);
         if (creatureCounterScript)
             creatureCounterScript.evolved(gameObject);
         StartCoroutine(GetComponent<EvoltionDelay>().EvolutionUnderway(evolution));

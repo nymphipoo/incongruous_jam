@@ -16,6 +16,7 @@ public class DwarfDemon : parentDemon
 
     [SerializeField] protected GameObject parent;
     [SerializeField] protected bool hasParent = false;
+    [SerializeField] protected bool shouldBreed = true;
 
     [SerializeField] protected GameObject dwarf;
 
@@ -28,7 +29,7 @@ public class DwarfDemon : parentDemon
     [SerializeField] protected Transform right;
     [SerializeField] protected Transform left;
     // Start is called before the first frame update
-    void Start()
+    override protected void Start()
     {
         currentSpawnTimeLeft = Random.Range(minSpawnTime, maxSpawnTime);
         if (startRight)
@@ -49,7 +50,11 @@ public class DwarfDemon : parentDemon
             currentSpawnTimeLeft = Random.Range(minSpawnTime, maxSpawnTime);
             if (transform.parent.childCount < 10)
             {
-                SpawnDwarf();
+                if (shouldBreed)
+                {
+
+                    SpawnDwarf();
+                }
             }
 
         }
@@ -134,7 +139,7 @@ public class DwarfDemon : parentDemon
 
     protected void SpawnDwarf()
     {
-        print(dwarf);
+        print(dwarf + ":" + transform.parent);
         GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
         dwarfDemon.transform.position = transform.position;
         DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();

@@ -106,6 +106,8 @@ MonoBehaviour:
   baseWiggle: 1
   hoverSprite: {fileID: 21300000, guid: 9d838dc4f2ea11640879ab99da074c76, type: 3}
   holdSprite: {fileID: 21300000, guid: fe13dddfea5a9a946bbdfa7c8bc8923a, type: 3}
+  sparksPrefab: {fileID: 6250110180168778807, guid: 00d9e30a209456d45b9de64ccf3c6c13, type: 3}
+  bloodPrefab: {fileID: 1555528082741187100, guid: 039055b8ffef02b42a3fa10acb8c5353, type: 3}
 --- !u!50 &6538445126796306039
 Rigidbody2D:
   serializedVersion: 4
