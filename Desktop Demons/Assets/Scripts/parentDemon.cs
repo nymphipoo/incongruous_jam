@@ -27,14 +27,14 @@ public class parentDemon : MonoBehaviour
 
     protected SpriteRenderer spriteRef;
 
-    private void Awake()
-    {
-        creatureCounterScript = creatureCounter.instance;
-    }
 
     // Start is called before the first frame update
     virtual protected void Start()
     {
+        creatureCounterScript = creatureCounter.instance;
+
+        creatureCounterScript.AddCreature(gameObject.name);
+
         spriteRef = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -129,8 +129,11 @@ public class parentDemon : MonoBehaviour
 
     virtual public void Killed()
     {
-        if(creatureCounterScript)
+        if (creatureCounterScript)
+        {
+            print("here2"+ gameObject.name);
             creatureCounterScript.RemoveCreature(gameObject.name, false);
+        }
         Destroy(gameObject);
     }
 

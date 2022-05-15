@@ -39,6 +39,7 @@ public class DwarfDemon : parentDemon
     // Start is called before the first frame update
     override protected void Start()
     {
+        base.Start();
         currentSpawnTimeLeft = Random.Range(minSpawnTime, maxSpawnTime);
         if (startRight)
         {
@@ -48,7 +49,6 @@ public class DwarfDemon : parentDemon
         {
             internalSpeed = new Vector2(-2, 0);
         }
-        base.Start();
     }
 
     private void Update()

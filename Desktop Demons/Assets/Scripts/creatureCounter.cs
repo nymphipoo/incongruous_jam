@@ -11,15 +11,16 @@ public class creatureCounter : MonoBehaviour
     [SerializeField] string endingSceneGood = "GoodEnding";
     [SerializeField] string endingSceneBad = "BadEnding";
     
-    List<string> activeCreatures= new List<string>();
+    public List<string> activeCreatures= new List<string>();
 
-    public List<string> killedList;
-    public List<string> escapedList;
+    public List<string> killedList = new List<string>();
+    public List<string> escapedList = new List<string>();
 
     public static creatureCounter instance;
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance == null)
         {
             instance = this;
@@ -27,7 +28,7 @@ public class creatureCounter : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            print("duplicate rage managers!!");
+            print("duplicate CC!!");
 
         }
     }
@@ -53,6 +54,9 @@ public class creatureCounter : MonoBehaviour
 
     public void maingame()
     {
+        activeCreatures = new List<string>();
+        killedList =new List<string>();
+        escapedList = new List<string>();
         print("going to main game");
         SceneManager.LoadScene(mainGame, LoadSceneMode.Single);
     }
@@ -103,10 +107,10 @@ public class creatureCounter : MonoBehaviour
 
         if (escaped)
         {
-            escapedList.Add(name);
+            escapedList.Add(deadCreature);
         }
         else {
-            killedList.Add(name);
+            killedList.Add(deadCreature);
         }
         isGameOver();
     }
