@@ -99,6 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097908561057311422}
+  - component: {fileID: 3717711581105197202}
   - component: {fileID: 7097908561057311423}
   - component: {fileID: 7097908561057311420}
   - component: {fileID: 7097908561057311416}
@@ -129,6 +130,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3717711581105197202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097908561057311417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc0b85aaa78cbc46a6c31bdf15d34e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkFrames:
+  - {fileID: 21300000, guid: 62ea0648304dc2f45b6c10fbe575fc9b, type: 3}
+  - {fileID: 21300000, guid: ce8675fb4824fab409e737a923e449f8, type: 3}
+  frameTime: 0.5
+  Blue:
+  - {fileID: 21300000, guid: 62ea0648304dc2f45b6c10fbe575fc9b, type: 3}
+  - {fileID: 21300000, guid: ce8675fb4824fab409e737a923e449f8, type: 3}
+  Green:
+  - {fileID: 21300000, guid: 6aa26b03e8afada4eb7267bd64c1c452, type: 3}
+  - {fileID: 21300000, guid: fe3d73ac050c6844bbd4392c62005d07, type: 3}
+  yellow:
+  - {fileID: 21300000, guid: a4eb89b4ee6216b47862e48ace9a1ecc, type: 3}
+  - {fileID: 21300000, guid: 53be92de26b1f604e85a1015486f4090, type: 3}
 --- !u!212 &7097908561057311423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,15 +193,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -232061735
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62ea0648304dc2f45b6c10fbe575fc9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -198,8 +224,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

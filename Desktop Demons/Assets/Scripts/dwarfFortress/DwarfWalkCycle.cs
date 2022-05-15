@@ -5,16 +5,16 @@ using UnityEngine;
 public class DwarfWalkCycle : AlwaysWalkCycling
 {
 
-    [SerializeField] Sprite[] Red;
     [SerializeField] Sprite[] Blue;
     [SerializeField] Sprite[] Green;
+    [SerializeField] Sprite[] yellow;
 
     private void Awake()
     {
         int dwarfColor = Random.Range(0, 2);
         if (dwarfColor == 0)
         {
-            walkFrames = Red;
+            walkFrames = yellow;
         }
         else if (dwarfColor == 1)
         {
