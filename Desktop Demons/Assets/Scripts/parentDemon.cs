@@ -17,6 +17,7 @@ public class parentDemon : MonoBehaviour
     protected LayerMask creatureCollisionLayers=137;
     [SerializeField]
     EvolutionFood[] foodNameToEvo;
+    public LassoSlime hitchHiker;
     [System.Serializable]
     public class EvolutionFood
     {
@@ -137,6 +138,10 @@ public class parentDemon : MonoBehaviour
         if (creatureCounterScript)
             creatureCounterScript.RemoveCreature(gameObject, true);
         Destroy(gameObject);
+        if (hitchHiker)
+        {
+            hitchHiker.Escaped();
+        }
     }
 
 

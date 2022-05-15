@@ -2435,7 +2435,7 @@ GameObject:
   - component: {fileID: 5339386489418763045}
   - component: {fileID: 5339386489418763046}
   - component: {fileID: 2892720767550643608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LassoSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2527,6 +2527,7 @@ MonoBehaviour:
   creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
+  hitchHiker: {fileID: 0}
   jumpDelay: 0.03
   jumpForce: 1
   xRange: 1
@@ -2534,9 +2535,6 @@ MonoBehaviour:
   gravityMax: 15
   groundCast: {fileID: 5339386489719046912}
   target: {fileID: 0}
-  mask:
-    serializedVersion: 2
-    m_Bits: 137
 --- !u!4 &5339386489719046912
 Transform:
   m_ObjectHideFlags: 0
@@ -2560,7 +2558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5339386489719046912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: groundcast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

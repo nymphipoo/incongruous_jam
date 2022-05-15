@@ -42,6 +42,7 @@ public class LassoSlime : SlimeCreature
             {
                 target = collision.transform;
                 offsetFromTarget = transform.position - target.position;
+                targetDemon.hitchHiker = this;
             }
         }
     }
@@ -50,6 +51,7 @@ public class LassoSlime : SlimeCreature
         if (collision.collider.transform == target)
         {
             target = null;
+            targetDemon.hitchHiker = null;
             targetDemon = null;
         }
     }
