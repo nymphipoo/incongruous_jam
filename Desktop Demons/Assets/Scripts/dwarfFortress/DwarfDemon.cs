@@ -37,7 +37,7 @@ public class DwarfDemon : parentDemon
 
     [SerializeField] AudioClip sparkleSound;
 
-    [SerializeField] AudioClip[] waaah;
+    [SerializeField] AudioClip waaah;
 
 
     // Start is called before the first frame update
@@ -111,13 +111,13 @@ public class DwarfDemon : parentDemon
         }
         if (hit)
         {
-           /* GameObject hitObject = hit.collider.gameObject;
+            GameObject hitObject = hit.collider.gameObject;
             internalSpeed.x = -internalSpeed.x;
-
-            int wah = Random.Range(0, waaah.Length - 1);
-            GetComponent<AudioSource>().clip = (waaah[wah]);*/
+            /* 
+           int wah = Random.Range(0, waaah.Length - 1);
+           GetComponent<AudioSource>().clip = (waaah[wah]);*/
             if (Random.Range(0, 300)==1) {
-                GetComponent<AudioSource>().clip = (waaah[waaah.Length - 1]);
+                GetComponent<AudioSource>().clip = (waaah);
             }
             GetComponent<AudioSource>().Play();
             Jump();

@@ -159,7 +159,7 @@ public class parentDemon : MonoBehaviour
         
         if (smokeTimer >= hitSmokeDelay)
         {
-            int selected =(int)Mathf.Floor( Random.Range(0, collisionNoises.Length));
+            int selected =(int)Mathf.Floor( Random.Range(0, collisionNoises.Length-1));
             GetComponent<AudioSource>().clip= collisionNoises[selected];
             GetComponent<AudioSource>().pitch = Random.Range(.9f,1.1f);
             GetComponent<AudioSource>().Play();
