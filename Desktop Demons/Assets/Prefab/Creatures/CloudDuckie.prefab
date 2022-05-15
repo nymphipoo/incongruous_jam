@@ -149,6 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
+  sparkles: {fileID: 0}
+  evolveSound1: {fileID: 8300000, guid: 4a6dc220d9abc0045aab50e8cbdb852a, type: 3}
+  evolvesSound2: {fileID: 8300000, guid: a1e3eb84db647dc489e763526e12a4e0, type: 3}
 --- !u!114 &2176433522385866264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +187,10 @@ MonoBehaviour:
   foodNameToEvo:
   - foodTag: legs
     prefabToEvolveTo: {fileID: 0}
+  hitchHiker: {fileID: 0}
+  deathNoise: {fileID: 0}
+  collisionNoises: []
+  smokeShart: {fileID: 0}
   startRight: 1
   flipChild: 1
   upDownTime: 1
