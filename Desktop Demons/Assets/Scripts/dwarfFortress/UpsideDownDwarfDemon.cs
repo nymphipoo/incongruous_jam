@@ -14,10 +14,12 @@ public class UpsideDownDwarfDemon : DwarfDemon
 
     protected override bool isOnGround()
     {
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y), creatureCollisionLayers);
+        Debug.DrawLine(transform.position, new Vector2(left.position.x + .1f, up.position.y), Color.black);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x+.1f, up.position.y), creatureCollisionLayers);
         if (!hit)
         {
-            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y), creatureCollisionLayers);
+            Debug.DrawLine(transform.position, new Vector2(right.position.x - .1f, up.position.y), Color.black);
+            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x-.1f, up.position.y), creatureCollisionLayers);
         }
 
         if (hit)
