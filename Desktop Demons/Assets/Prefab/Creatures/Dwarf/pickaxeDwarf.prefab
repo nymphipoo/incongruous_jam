@@ -145,7 +145,7 @@ MonoBehaviour:
   walkFrames:
   - {fileID: 21300000, guid: a7e6ba65822aa6147b48f19ea4edebb7, type: 3}
   - {fileID: 21300000, guid: 779a0705c687a604faa70e6326b74a15, type: 3}
-  frameTime: 0
+  frameTime: 0.5
   Blue:
   - {fileID: 21300000, guid: a7e6ba65822aa6147b48f19ea4edebb7, type: 3}
   - {fileID: 21300000, guid: 779a0705c687a604faa70e6326b74a15, type: 3}

@@ -122,7 +122,6 @@ public class DwarfDemon : parentDemon
 
         if (hit)
         {
-            print("on ground");
             if (hit.collider.gameObject.GetComponent<parentDemon>())
             {
                 parent = hit.collider.gameObject;
@@ -143,7 +142,6 @@ public class DwarfDemon : parentDemon
 
     protected void SpawnDwarf()
     {
-        print(dwarf + ":" + transform.parent);
         GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
         dwarfDemon.transform.position = transform.position;
         DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();

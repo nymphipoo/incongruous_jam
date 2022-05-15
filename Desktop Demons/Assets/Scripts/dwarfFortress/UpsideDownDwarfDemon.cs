@@ -6,7 +6,6 @@ public class UpsideDownDwarfDemon : DwarfDemon
 {
     public override void Jump()
     {
-        print("jump");
         internalSpeed.y = -jumpStrength;
     }
 

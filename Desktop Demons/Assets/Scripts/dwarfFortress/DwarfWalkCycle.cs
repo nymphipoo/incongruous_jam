@@ -11,7 +11,8 @@ public class DwarfWalkCycle : AlwaysWalkCycling
 
     private void Awake()
     {
-        int dwarfColor = Random.Range(0, 2);
+        int dwarfColor = Random.Range(0, 3);
+        print("here"+dwarfColor);
         if (dwarfColor == 0)
         {
             walkFrames = yellow;
@@ -24,16 +25,5 @@ public class DwarfWalkCycle : AlwaysWalkCycling
         {
             walkFrames = Green;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

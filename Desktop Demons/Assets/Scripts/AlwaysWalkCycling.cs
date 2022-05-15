@@ -18,10 +18,10 @@ public class AlwaysWalkCycling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime;
         if (timer > frameTime)
         {
+            print("here"+ walkFrames.Length+":"+ walkFrameIndex);
             walkFrameIndex++;
             if (walkFrameIndex >= walkFrames.Length)
             {
