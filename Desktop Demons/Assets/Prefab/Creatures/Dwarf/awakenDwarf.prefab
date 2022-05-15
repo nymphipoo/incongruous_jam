@@ -245,7 +245,7 @@ MonoBehaviour:
   sparkleSound: {fileID: 8300000, guid: bad5e03ec458e3c4bbc5f9e694d4316a, type: 3}
   waaah: {fileID: 8300000, guid: 643a7110c5dc49843acda4eabe858dbc, type: 3}
   yLeave: -5
-  timeTillAction: 10
+  timeTillAction: 20
 --- !u!212 &7097908561057311423
 SpriteRenderer:
   m_ObjectHideFlags: 0

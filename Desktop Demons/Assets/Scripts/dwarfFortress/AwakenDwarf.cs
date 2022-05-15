@@ -41,7 +41,7 @@ public class AwakenDwarf : DwarfDemon
             onGround = isOnGround();
             applyGravity();
         }
-        if (Time.time > timeToLeave+timeTillAction)
+        if (Time.time > timeToLeave+timeTillAction/2)
         {
             timeToLeave = -1;
             Escaped();
@@ -67,7 +67,7 @@ public class AwakenDwarf : DwarfDemon
     void CheckIfDwarfInfected(RaycastHit2D isDwarf) {
         if (isDwarf) {
             DwarfDemon dwarfScript = isDwarf.collider.gameObject.GetComponent<DwarfDemon>();
-            if (dwarfScript)
+            if (dwarfScript&& dwarfScript.enabled)
             {
                 dwarfScript.Evolving(awakenFood, dwarf);
             }

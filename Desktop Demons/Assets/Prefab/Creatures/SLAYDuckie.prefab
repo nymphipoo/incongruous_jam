@@ -179,8 +179,10 @@ MonoBehaviour:
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
   hitchHiker: {fileID: 0}
-  deathNoise: {fileID: 0}
-  collisionNoises: []
+  deathNoise: {fileID: 8300000, guid: 0bef0f1338c207b43b975c7e19b84279, type: 3}
+  collisionNoises:
+  - {fileID: 8300000, guid: 0bef0f1338c207b43b975c7e19b84279, type: 3}
+  - {fileID: 8300000, guid: 20ec7e5170b20d6408fedb92aec05f21, type: 3}
   smokeShart: {fileID: 6250110180168778807, guid: 0ee59934c3e67664187b4911950859b3, type: 3}
   growSpeed: 1
   maxHeight: 7
