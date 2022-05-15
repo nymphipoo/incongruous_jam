@@ -11,7 +11,7 @@ public class creatureCounter : MonoBehaviour
     [SerializeField] string endingSceneGood = "GoodEnding";
     [SerializeField] string endingSceneBad = "BadEnding";
     
-    List<GameObject> activeCreatures;
+    List<string> activeCreatures= new List<string>();
 
     public List<string> killedList;
     public List<string> escapedList;
@@ -87,26 +87,26 @@ public class creatureCounter : MonoBehaviour
         SceneManager.LoadScene(frontPage, LoadSceneMode.Single);
     }
 
-    public void AddCreature(GameObject newCreature)
+    public void AddCreature(string newCreature)
     {
         activeCreatures.Add(newCreature); 
     }
 
-    public void evolved(GameObject oldcreature)
+    public void evolved(string oldcreature)
     {
         activeCreatures.Remove(oldcreature);
     }
 
-    public void RemoveCreature(GameObject deadCreature, bool escaped)
+    public void RemoveCreature(string deadCreature, bool escaped)
     {
         activeCreatures.Remove(deadCreature);
 
         if (escaped)
         {
-            escapedList.Add(deadCreature.name);
+            escapedList.Add(name);
         }
         else {
-            killedList.Add(deadCreature.name);
+            killedList.Add(name);
         }
         isGameOver();
     }
