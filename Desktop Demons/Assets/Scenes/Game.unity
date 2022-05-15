@@ -1940,6 +1940,10 @@ PrefabInstance:
       propertyPath: endingSceneGood
       value: endingGood
       objectReference: {fileID: 0}
+    - target: {fileID: 5129606353247870671, guid: 2f1df04b3b7df0849b981c4f208a2795, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8073018800794830857, guid: 2f1df04b3b7df0849b981c4f208a2795, type: 3}
       propertyPath: m_Name
       value: CreatureCounter
@@ -2341,6 +2345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5123683733357019199, guid: 9804e3b74a082804fbb11f0d8909a2af, type: 3}
+      propertyPath: m_Pitch
+      value: 1.46
+      objectReference: {fileID: 0}
     - target: {fileID: 6538445126796306040, guid: 9804e3b74a082804fbb11f0d8909a2af, type: 3}
       propertyPath: m_RootOrder
       value: 12
