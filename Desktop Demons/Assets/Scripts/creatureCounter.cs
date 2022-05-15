@@ -10,7 +10,10 @@ public class creatureCounter : MonoBehaviour
     [SerializeField] string mainGame = "Game";
     [SerializeField] string endingSceneGood = "endingGood";
     [SerializeField] string endingSceneBad = "BadEnding";
+
+    [SerializeField] AudioClip escape;
     
+
     public List<string> activeCreatures= new List<string>();
 
     public List<string> killedList = new List<string>();
@@ -31,6 +34,11 @@ public class creatureCounter : MonoBehaviour
             print("duplicate CC!!");
 
         }
+    }
+
+    private void Start()
+    {
+        GetComponent<AudioSource>().clip = escape;
     }
 
     private void Update()
@@ -107,6 +115,7 @@ public class creatureCounter : MonoBehaviour
 
         if (escaped)
         {
+            GetComponent<AudioSource>().Play();
             escapedList.Add(deadCreature);
         }
         else {

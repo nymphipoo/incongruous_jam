@@ -11,6 +11,11 @@ public class FlyswatterController : MonoBehaviour
     Rigidbody2D rigidRef;
     SpriteRenderer spriteRef;
     Vector2 mousePosition = new Vector2();
+
+    [SerializeField] AudioClip miss1;
+    [SerializeField] AudioClip miss2;
+    [SerializeField] AudioClip hit;
+
     float timer = 0;
     bool held = false;
     // Start is called before the first frame update
@@ -66,8 +71,19 @@ public class FlyswatterController : MonoBehaviour
         //do slap check
         Collider2D[] overlappingGuys = new Collider2D[5];
         Physics2D.OverlapCollider(colRef, new ContactFilter2D(), overlappingGuys);
-        
-        foreach(Collider2D eachCol in overlappingGuys)
+
+        int soundEffect = Random.Range(0, 2);
+
+        float pitch = Random.Range(.5f, 1.5f);
+        GetComponent<AudioSource>().pitch = pitch;
+
+        if (soundEffect == 0)
+            GetComponent<AudioSource>().clip = miss1;
+        else
+            GetComponent<AudioSource>().clip = miss2;
+
+
+        foreach (Collider2D eachCol in overlappingGuys)
         {
             if (eachCol)
             {
@@ -76,10 +92,12 @@ public class FlyswatterController : MonoBehaviour
                 {
                     eachDemon.Killed();
                     Instantiate(bloodPrefab, eachDemon.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                    GetComponent<AudioSource>().clip = hit;
 
                 }
             }
         }
+        GetComponent<AudioSource>().Play();
     }
     void SlapEnd()
     {

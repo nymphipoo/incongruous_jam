@@ -25,6 +25,9 @@ public class parentDemon : MonoBehaviour
         public GameObject prefabToEvolveTo;
     }
 
+    [SerializeField] AudioClip deathNoise;
+    [SerializeField] AudioClip [] collisionNoises;
+
     protected SpriteRenderer spriteRef;
     [SerializeField] GameObject smokeShart;
      float hitSmokeDelay=.5f;
@@ -133,9 +136,10 @@ public class parentDemon : MonoBehaviour
 
     virtual public void Killed()
     {
+        GetComponent<AudioSource>().clip=  deathNoise;
+        GetComponent<AudioSource>().Play();
         if (creatureCounterScript)
         {
-            print("here2"+ gameObject.name);
             creatureCounterScript.RemoveCreature(gameObject.name, false);
         }
         Destroy(gameObject);
@@ -152,8 +156,13 @@ public class parentDemon : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (smokeTimer >= hitSmokeDelay)
         {
+            int selected =(int)Mathf.Floor( Random.Range(0, collisionNoises.Length-1));
+            GetComponent<AudioSource>().clip= collisionNoises[selected];
+            GetComponent<AudioSource>().pitch = Random.Range(.9f,1.1f);
+            GetComponent<AudioSource>().Play();
             smokeTimer = 0;
             if (smokeShart != null )
             {

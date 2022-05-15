@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 7097908561057311416}
   - component: {fileID: -7896148333803315699}
   - component: {fileID: 9073921394723725900}
+  - component: {fileID: 2428928271919212158}
   m_Layer: 3
   m_Name: pickaxeDwarf
   m_TagString: Untagged
@@ -212,7 +213,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a7e6ba65822aa6147b48f19ea4edebb7, type: 3}
   - {fileID: 21300000, guid: 779a0705c687a604faa70e6326b74a15, type: 3}
   Green:
-  - {fileID: 21300000, guid: 1c570818fd6e2f34f89c3c680085a5d6, type: 3}
   - {fileID: 21300000, guid: 5a552ef3398bfce449829d88afb890c3, type: 3}
   yellow:
   - {fileID: 21300000, guid: 720826a6be4c054458b6631df49857f2, type: 3}
@@ -331,6 +331,8 @@ MonoBehaviour:
   evolutionDelay: 1
   evolutionDelayStep: 0.1
   sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
+  evolveSound1: {fileID: 0}
+  evolvesSound2: {fileID: 0}
 --- !u!114 &9073921394723725900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +351,9 @@ MonoBehaviour:
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
   hitchHiker: {fileID: 0}
+  deathNoise: {fileID: 0}
+  collisionNoises: []
+  smokeShart: {fileID: 0}
   startRight: 1
   gravity: 1
   currentSpawnTimeLeft: 10
@@ -369,11 +374,109 @@ MonoBehaviour:
   right: {fileID: 7097908559802914116}
   left: {fileID: 7097908559696607502}
   sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
+  sparkleSound: {fileID: 0}
+  waaah: {fileID: 0}
   isOnCeilling: 0
   dwarfhole: {fileID: 6333044099801391858, guid: 505b1a914369efb44bb602ff42dc7757, type: 3}
   yHole: 4.5
   miningTimeLeft: 0
   totalMiningTime: 10
+--- !u!82 &2428928271919212158
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097908561057311417}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7097908561116111899
 GameObject:
   m_ObjectHideFlags: 0
