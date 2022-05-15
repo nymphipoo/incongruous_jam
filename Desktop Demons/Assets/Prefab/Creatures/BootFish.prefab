@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8310210850817191489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.8, y: -2.74, z: 0}
-  m_LocalScale: {x: 0.36180142, y: 0.36180142, z: 0.36180142}
+  m_LocalScale: {x: 0.17216682, y: 0.17216682, z: 0.17216682}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
+  sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
