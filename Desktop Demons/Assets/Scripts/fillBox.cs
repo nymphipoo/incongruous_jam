@@ -29,10 +29,14 @@ public class fillBox : MonoBehaviour
             print("ERROR: CANNOT FIND CREATURE COUNTER!!");
         }
 
-        if (isDeadDisplay)
+        if (isDeadDisplay) { 
             displayList = cc.killedList;
-        else
+            cc.killedList =new List<string>();
+        }
+        else { 
             displayList = cc.escapedList;
+            cc.escapedList = new List<string>();
+        }
 
         for (int i =0;i<displayList.Count;i++) {
             spawn(displayList[i]);
