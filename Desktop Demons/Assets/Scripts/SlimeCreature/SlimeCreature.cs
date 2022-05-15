@@ -12,7 +12,7 @@ public class SlimeCreature : parentDemon
     
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (timer >= jumpDelay)
         {
@@ -21,19 +21,22 @@ public class SlimeCreature : parentDemon
         }
         if (!Physics2D.Linecast(transform.position, groundCast.position, creatureCollisionLayers))
         {
-            timer += Time.deltaTime;
             gravity += gravityAccel * Time.deltaTime;
             gravity = Mathf.Clamp(gravity, 0, gravityMax);
+        }
+        else
+        {
+
+            timer += Time.deltaTime;
         }
     }
     void Jump()
     {
-        print("yehaw");
         internalSpeed.y = jumpForce;
         internalSpeed.x = Random.Range(-xRange, xRange);
         gravity = 0;
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (!Physics2D.Linecast(transform.position, groundCast.position, creatureCollisionLayers))
         {

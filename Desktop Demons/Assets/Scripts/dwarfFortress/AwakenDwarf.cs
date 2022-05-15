@@ -6,7 +6,8 @@ public class AwakenDwarf : DwarfDemon
 {
     string awakenFood = "book";
 
-    [SerializeField]  float yLeave=-5;
+    [SerializeField]  float yLeave=-4.7f;
+    bool firstLeave = true;
 
     static public float timeToLeave = -1;
     [SerializeField] float timeTillAction = 10;
@@ -25,16 +26,30 @@ public class AwakenDwarf : DwarfDemon
     
     protected override void FixedUpdate()
     {
-        if (Time.time > timeToLeave) {
+        if (Time.time > timeToLeave)
+        {
             Leave();
+            onGround = false;
+            applyGravity();
+            applyGravity();
         }
-        if (Time.time > timeToLeave+timeTillAction)
+        else { 
+            Infect();
+            CheckIfBounce();
+            if (hasParent)
+                rb2d.velocity = new Vector2(parent.transform.GetComponent<Rigidbody2D>().velocity.x, rb2d.velocity.y); ;
+            onGround = isOnGround();
+            applyGravity();
+        }
+        if (Time.time > timeToLeave+timeTillAction/2)
         {
             timeToLeave = -1;
             Escaped();
         }
-        base.FixedUpdate();
-        Infect();
+        onGround = isOnGround();
+        parent = null;
+        hasParent = false;
+        base.updateVelocity();
     }
 
     void Infect()
@@ -51,7 +66,6 @@ public class AwakenDwarf : DwarfDemon
 
     void CheckIfDwarfInfected(RaycastHit2D isDwarf) {
         if (isDwarf) {
-            print(isDwarf.collider.name);
             DwarfDemon dwarfScript = isDwarf.collider.gameObject.GetComponent<DwarfDemon>();
             if (dwarfScript)
             {
@@ -62,9 +76,16 @@ public class AwakenDwarf : DwarfDemon
 
     private void Leave()
     {
-        Jump();
-        GetComponent<BoxCollider2D>().enabled = false;
-        if (transform.position.y >= yLeave)
+        if (firstLeave)
+        {
+            print("here!");
+            Jump();
+            firstLeave = false;
+
+        }
+
+        GetComponent<Collider2D>().enabled = false;
+        if (transform.position.y <= yLeave)
         {
             internalSpeed.y = 0;
             transform.position = new Vector3(transform.position.x, yLeave, transform.position.z);

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4801015122754509496}
   - component: {fileID: 4801015122754509497}
   - component: {fileID: 4801015122754509499}
-  m_Layer: 0
+  - component: {fileID: 7859493099007144043}
+  m_Layer: 3
   m_Name: CheetoSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +73,10 @@ MonoBehaviour:
   externalSpeed: {x: 0, y: 0}
   creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
-  foodNameToEvo: []
+  foodNameToEvo:
+  - foodTag: lasso
+    prefabToEvolveTo: {fileID: 5999946691734310094, guid: a602bc0d5fa09c34e90595b3c6691653, type: 3}
+  hitchHiker: {fileID: 0}
   grounded: 0
   fallAccel: 5
   terminalFall: 25
@@ -99,7 +103,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -112,6 +116,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7859493099007144043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801015122754509495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83ae61fc1e08af4395a7ecf3e422281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evolutionDelay: 1
+  evolutionDelayStep: 0.1
+  sparkles: {fileID: 6250110180168778807, guid: 4779173b1ff0ac44fb54b751f7f6459b, type: 3}
 --- !u!1 &5437190194672926264
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +142,8 @@ GameObject:
   - component: {fileID: 5437190194672926265}
   - component: {fileID: 5437190194672926267}
   - component: {fileID: 5437190194672926266}
-  m_Layer: 0
+  - component: {fileID: 1798560031}
+  m_Layer: 3
   m_Name: visubal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +231,20 @@ MonoBehaviour:
   walkFrames:
   - {fileID: 21300000, guid: 3e1e2ea156fec5149a4ff4cc7bea6832, type: 3}
   - {fileID: 21300000, guid: 96e2197f5d6e35a4c80ec797ac0738c8, type: 3}
-  frameTime: 0.2
+  frameTime: 0.7
+--- !u!114 &1798560031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437190194672926264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c8ea3195b347f44be54f0c08fe238d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 72
 --- !u!1 &5437190195865518440
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5437190195865518441}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: groundCast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5437190195865518440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.33, z: 0}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4801015122754509498}

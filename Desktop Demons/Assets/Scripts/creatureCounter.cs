@@ -8,18 +8,19 @@ public class creatureCounter : MonoBehaviour
     [SerializeField] string frontPage = "FrontPage";
     [SerializeField] string instructionPage = "Instructions";
     [SerializeField] string mainGame = "Game";
-    [SerializeField] string endingSceneGood = "GoodEnding";
+    [SerializeField] string endingSceneGood = "endingGood";
     [SerializeField] string endingSceneBad = "BadEnding";
     
-    List<GameObject> activeCreatures;
+    public List<string> activeCreatures= new List<string>();
 
-    public List<string> killedList;
-    public List<string> escapedList;
+    public List<string> killedList = new List<string>();
+    public List<string> escapedList = new List<string>();
 
     public static creatureCounter instance;
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance == null)
         {
             instance = this;
@@ -27,7 +28,7 @@ public class creatureCounter : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            print("duplicate rage managers!!");
+            print("duplicate CC!!");
 
         }
     }
@@ -53,6 +54,9 @@ public class creatureCounter : MonoBehaviour
 
     public void maingame()
     {
+        activeCreatures = new List<string>();
+        killedList =new List<string>();
+        escapedList = new List<string>();
         print("going to main game");
         SceneManager.LoadScene(mainGame, LoadSceneMode.Single);
     }
@@ -87,26 +91,26 @@ public class creatureCounter : MonoBehaviour
         SceneManager.LoadScene(frontPage, LoadSceneMode.Single);
     }
 
-    public void AddCreature(GameObject newCreature)
+    public void AddCreature(string newCreature)
     {
         activeCreatures.Add(newCreature); 
     }
 
-    public void evolved(GameObject oldcreature)
+    public void evolved(string oldcreature)
     {
         activeCreatures.Remove(oldcreature);
     }
 
-    public void RemoveCreature(GameObject deadCreature, bool escaped)
+    public void RemoveCreature(string deadCreature, bool escaped)
     {
         activeCreatures.Remove(deadCreature);
 
         if (escaped)
         {
-            escapedList.Add(deadCreature.name);
+            escapedList.Add(deadCreature);
         }
         else {
-            killedList.Add(deadCreature.name);
+            killedList.Add(deadCreature);
         }
         isGameOver();
     }

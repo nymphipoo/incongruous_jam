@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UpsideDownDwarfDemon : DwarfDemon
 {
+
+    [SerializeField] protected bool isOnCeilling = false;
+
     public override void Jump()
     {
         internalSpeed.y = -jumpStrength;
@@ -11,14 +14,17 @@ public class UpsideDownDwarfDemon : DwarfDemon
 
     protected override bool isOnGround()
     {
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x, up.position.y), creatureCollisionLayers);
+        Debug.DrawLine(transform.position, new Vector2(left.position.x + .1f, up.position.y), Color.black);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(left.position.x+.1f, up.position.y), creatureCollisionLayers);
         if (!hit)
         {
-            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x, up.position.y), creatureCollisionLayers);
+            Debug.DrawLine(transform.position, new Vector2(right.position.x - .1f, up.position.y), Color.black);
+            hit = Physics2D.Linecast(transform.position, new Vector2(right.position.x-.1f, up.position.y), creatureCollisionLayers);
         }
 
         if (hit)
         {
+            isOnCeilling = (hit.collider.gameObject.tag == "wall");
             if (hit.collider.gameObject.GetComponent<parentDemon>())
             {
                 parent = hit.collider.gameObject;
@@ -41,7 +47,6 @@ public class UpsideDownDwarfDemon : DwarfDemon
         }
         else if (onGround && internalSpeed.y > 0)
         {
-            print("on ground");
             internalSpeed.y = 0;
         }
     }
