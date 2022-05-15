@@ -24,7 +24,7 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
         onGround = isOnGround();
         applyGravity();
 
-        if (onGround)
+        if (onGround&&isOnCeilling)
         {
             miningTimeLeft -= Time.fixedDeltaTime;
             if (miningTimeLeft < 0) {
@@ -34,6 +34,7 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
         }
         else
             miningTimeLeft = totalMiningTime;
+
 
         base.updateVelocity();
 

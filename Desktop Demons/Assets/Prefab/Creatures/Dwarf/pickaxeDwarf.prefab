@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 7097908561057311417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.22685081, y: -4.3615685, z: 8.080253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 7097908559877641098}
   - {fileID: 7097908561116111898}
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionDelay: 1
   evolutionDelayStep: 0.1
+  sparkles: {fileID: 0}
 --- !u!114 &9073921394723725900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ MonoBehaviour:
   maxMen: 10
   parent: {fileID: 0}
   hasParent: 0
-  shouldBreed: 1
+  shouldBreed: 0
   dwarf: {fileID: 7097908561057311417}
   onGround: 1
   gravityStrength: 5

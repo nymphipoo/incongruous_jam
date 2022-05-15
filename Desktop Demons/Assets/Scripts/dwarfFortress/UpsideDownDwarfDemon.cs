@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UpsideDownDwarfDemon : DwarfDemon
 {
+
+    [SerializeField] protected bool isOnCeilling = false;
+
     public override void Jump()
     {
         internalSpeed.y = -jumpStrength;
@@ -19,6 +22,7 @@ public class UpsideDownDwarfDemon : DwarfDemon
 
         if (hit)
         {
+            isOnCeilling = (hit.collider.gameObject.tag == "wall");
             if (hit.collider.gameObject.GetComponent<parentDemon>())
             {
                 parent = hit.collider.gameObject;
