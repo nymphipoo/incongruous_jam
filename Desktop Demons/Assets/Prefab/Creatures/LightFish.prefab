@@ -56,6 +56,8 @@ MonoBehaviour:
   foodNameToEvo:
   - foodTag: boots
     prefabToEvolveTo: {fileID: 2479542989912104261, guid: 47d1df76ee738294daa1a0ac119e2008, type: 3}
+  hitchHiker: {fileID: 0}
+  smokeShart: {fileID: 6250110180168778807, guid: 0ee59934c3e67664187b4911950859b3, type: 3}
   startRight: 1
   flipChild: 1
 --- !u!212 &4011765859976843529

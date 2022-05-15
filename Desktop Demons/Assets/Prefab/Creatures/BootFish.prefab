@@ -54,6 +54,8 @@ MonoBehaviour:
   foodNameToEvo:
   - foodTag: lightbulb
     prefabToEvolveTo: {fileID: 165739247460399916, guid: 16cc3c7db3e1f7742b10083ad031a8c5, type: 3}
+  hitchHiker: {fileID: 0}
+  smokeShart: {fileID: 6250110180168778807, guid: 0ee59934c3e67664187b4911950859b3, type: 3}
   grounded: 0
   fallAccel: 5
   terminalFall: 20

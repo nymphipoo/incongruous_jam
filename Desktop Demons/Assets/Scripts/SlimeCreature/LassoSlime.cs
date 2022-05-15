@@ -60,6 +60,7 @@ public class LassoSlime : SlimeCreature
                 colRef.enabled = false;
             }
         }
+        base.OnCollisionEnter2D(collision);
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

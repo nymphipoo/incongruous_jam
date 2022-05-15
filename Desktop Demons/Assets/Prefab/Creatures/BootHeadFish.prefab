@@ -54,6 +54,8 @@ MonoBehaviour:
   creatureCounterScript: {fileID: 0}
   parentExternalSpeedDecay: 1
   foodNameToEvo: []
+  hitchHiker: {fileID: 0}
+  smokeShart: {fileID: 6250110180168778807, guid: 0ee59934c3e67664187b4911950859b3, type: 3}
   startRight: 1
   flipChild: 1
 --- !u!212 &2479542989912104259

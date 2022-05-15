@@ -37,5 +37,7 @@ public class RocketFish : parentDemon
             transform.right = Vector2.Reflect(transform.right, collision.GetContact(0).normal);
             currentSpeed *= speedIncreasePerBump;
         }
+
+        base.OnCollisionEnter2D(collision);
     }
 }

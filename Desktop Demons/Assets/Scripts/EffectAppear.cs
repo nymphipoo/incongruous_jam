@@ -30,14 +30,11 @@ public class EffectAppear : MonoBehaviour
         {
             transform.Rotate(new Vector3(0,0,spinSpeed * Time.deltaTime));
         }
-        if (fallSpeed > 0)
-        {
             transform.position +=Vector3.down* fallSpeed * Time.deltaTime;
-            if (fallAccel>0)
-            {
+           
                 fallSpeed += fallAccel;
-            }
-        }
+            
+        
 
         timer += Time.deltaTime;
 
