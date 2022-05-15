@@ -23,7 +23,6 @@ public class PickaxeDwarf : UpsideDownDwarfDemon
         CheckIfBounce();
         onGround = isOnGround();
         applyGravity();
-
         if (onGround&&isOnCeilling)
         {
             miningTimeLeft -= Time.fixedDeltaTime;

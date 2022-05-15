@@ -8,7 +8,7 @@ public class creatureCounter : MonoBehaviour
     [SerializeField] string frontPage = "FrontPage";
     [SerializeField] string instructionPage = "Instructions";
     [SerializeField] string mainGame = "Game";
-    [SerializeField] string endingSceneGood = "GoodEnding";
+    [SerializeField] string endingSceneGood = "endingGood";
     [SerializeField] string endingSceneBad = "BadEnding";
     
     public List<string> activeCreatures= new List<string>();
