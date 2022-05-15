@@ -14,7 +14,7 @@ public class parentDemon : MonoBehaviour
     [SerializeField] protected creatureCounter creatureCounterScript;
 
     [SerializeField] protected bool parentExternalSpeedDecay = true;
-    protected LayerMask creatureCollisionLayers=9;
+    protected LayerMask creatureCollisionLayers=137;
     [SerializeField]
     EvolutionFood[] foodNameToEvo;
     [System.Serializable]
