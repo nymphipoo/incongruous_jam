@@ -41,7 +41,7 @@ public class AwakenDwarf : DwarfDemon
             onGround = isOnGround();
             applyGravity();
         }
-        if (Time.time > timeToLeave+timeTillAction/2)
+        if (Time.time > timeToLeave+timeTillAction)
         {
             timeToLeave = -1;
             Escaped();
