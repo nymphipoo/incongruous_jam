@@ -32,8 +32,10 @@ public class parentDemon : MonoBehaviour
     virtual protected void Start()
     {
         creatureCounterScript = creatureCounter.instance;
-
-        creatureCounterScript.AddCreature(gameObject.name);
+        if (creatureCounterScript)
+        {
+            creatureCounterScript.AddCreature(gameObject.name);
+        }
 
         spriteRef = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
