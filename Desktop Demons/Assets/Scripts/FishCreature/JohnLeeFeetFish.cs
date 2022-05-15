@@ -8,7 +8,6 @@ public class JohnLeeFeetFish : parentDemon
     [SerializeField] float fallAccel,terminalFall, walkSpeed, snapDistance,direction,frameTime;
     [SerializeField] Sprite[] walkFrames;
     Collider2D colRef;
-    SpriteRenderer spriteRef;
     // Start is called before the first frame update
     float currentFallSpeed = 0;
     float timer = 0;
