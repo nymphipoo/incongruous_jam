@@ -170,14 +170,18 @@ public class DwarfDemon : parentDemon
 
     protected void SpawnDwarf()
     {
-        GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
-        StartCoroutine(sparkle());
-        dwarfDemon.transform.position = transform.position;
-        DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();
-        StartCoroutine(demonScript.sparkle());
-        demonScript.dwarf = dwarf;
-        demonScript.startRight = !(internalSpeed.x > 0);
-        demonScript.Jump();
+        if (dwarf)
+        {
+            GameObject dwarfDemon = Instantiate(dwarf, transform.parent);
+
+            StartCoroutine(sparkle());
+            dwarfDemon.transform.position = transform.position;
+            DwarfDemon demonScript = dwarfDemon.GetComponent<DwarfDemon>();
+            StartCoroutine(demonScript.sparkle());
+            demonScript.dwarf = dwarf;
+            demonScript.startRight = !(internalSpeed.x > 0);
+            demonScript.Jump();
+        }
     }
 
     public IEnumerator sparkle()
