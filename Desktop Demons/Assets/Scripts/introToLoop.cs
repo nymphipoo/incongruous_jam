@@ -11,12 +11,16 @@ public class introToLoop : MonoBehaviour
     {
         aud = GetComponent<AudioSource>();
         aud.PlayOneShot(intro);
-        aud.PlayScheduled(AudioSettings.dspTime + intro.length);
+       Invoke("PlayLater", intro.length);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void PlayLater()
+    {
+        aud.Play();
     }
 }
