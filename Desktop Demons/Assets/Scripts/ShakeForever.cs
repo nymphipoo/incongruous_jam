@@ -26,6 +26,9 @@ public class ShakeForever : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        if (creatureCounter.instance) {
+            creatureCounter.instance.ResetStuff();
+        }
         SceneManager.LoadScene(sceneName);
     }
 }

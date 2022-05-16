@@ -63,12 +63,17 @@ public class creatureCounter : MonoBehaviour
         }
     }
 
-    public void maingame()
+    public void ResetStuff()
     {
         activeCreatures = new List<string>();
-        killedList =new List<string>();
+        killedList = new List<string>();
         escapedList = new List<string>();
-        print("going to main game");
+    }
+
+    public void maingame()
+    {
+        ResetStuff();
+;        print("going to main game");
         SceneManager.LoadScene(mainGame, LoadSceneMode.Single);
     }
 

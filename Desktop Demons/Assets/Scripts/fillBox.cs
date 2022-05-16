@@ -24,9 +24,14 @@ public class fillBox : MonoBehaviour
 
         if (isDeadDisplay) { 
             displayList = cc.killedList;
+            cc.activeCreatures = new List<string>();
+            cc.killedList = new List<string>();
+
         }
         else { 
             displayList = cc.escapedList;
+            cc.activeCreatures = new List<string>();
+            cc.escapedList = new List<string>();
         }
 
         for (int i =0;i<displayList.Count;i++) {
